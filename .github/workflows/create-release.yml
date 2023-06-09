@@ -1,0 +1,23 @@
+---
+
+# https://github.com/wayofdev/gh-actions/blob/master/.github/workflows/create-release.yml
+# https://github.com/google-github-actions/release-please-action#release-types-supported
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - master
+
+name: 📦 Create release
+
+jobs:
+  release:
+    uses: wayofdev/gh-actions/.github/workflows/create-release.yml@master
+    with:
+      os: ubuntu-latest
+      branch: master
+      package-name: laravel-package-tpl
+    secrets:
+      token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
+...
