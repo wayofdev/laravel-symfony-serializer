@@ -43,7 +43,6 @@ class NormalizersRegistry implements NormalizersRegistryInterface
     }
 
     /**
-     * @param NormalizerInterface|DenormalizerInterface $normalizer
      * @param int<0, max> $priority
      */
     public function register(NormalizerInterface|DenormalizerInterface $normalizer, int $priority = 0): void
