@@ -16,7 +16,7 @@ jobs:
     with:
       os: ubuntu-latest
       branch: master
-      package-name: laravel-package-tpl
+      package-name: laravel-symfony-serializer
     secrets:
       token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
