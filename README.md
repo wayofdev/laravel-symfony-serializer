@@ -160,6 +160,7 @@ namespace Laravel\Http\Controllers;
 
 use Application\DTO\MyDTO;
 use Illuminate\Http\Request;
+use WayOfDev\Serializer\HttpCode;
 use WayOfDev\Serializer\ResponseFactory;
 
 class MyController extends Controller
@@ -176,7 +177,7 @@ class MyController extends Controller
         $dto = new MyDTO(1, 'John Doe', 'john@example.com');
 
         $this->response->withContext(['groups' => ['private']]);
-        $this->response->withStatusCode(200);
+        $this->response->withStatusCode(HttpCode::HTTP_OK);
       
         return $this->response->create($dto);
     }

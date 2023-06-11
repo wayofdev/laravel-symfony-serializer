@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace WayOfDev\Serializer;
 
 use Illuminate\Http\Response as IlluminateResponse;
-use Symfony\Component\HttpFoundation\Response;
 use WayOfDev\Serializer\Contracts\SerializerInterface;
 
 final class ResponseFactory
@@ -17,7 +16,7 @@ final class ResponseFactory
 
     private array $context = [];
 
-    private int $status = Response::HTTP_OK;
+    private int $status = HttpCode::HTTP_OK;
 
     public function __construct(SerializerManager $serializer)
     {
