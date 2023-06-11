@@ -34,7 +34,7 @@ final class ResponseFactory
         $this->context = $context;
     }
 
-    public function create(object $response): Response
+    public function create(object $response): IlluminateResponse
     {
         $content = $this->serializer->normalize(
             data: $response,
@@ -47,7 +47,7 @@ final class ResponseFactory
         );
     }
 
-    public function fromArray(array $response): Response
+    public function fromArray(array $response): IlluminateResponse
     {
         $content = $this->serializer->normalize(
             data: $response,
