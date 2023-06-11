@@ -67,7 +67,121 @@ The serializers available in this package are: `symfony-json`, `symfony-csv`, `s
 > The `yaml` encoder requires the `symfony/yaml` package and is disabled when the package is not installed.
 > Install the `symfony/yaml` package and the encoder will be automatically enabled.
 
-@todo ...
+We will use this example DTO for serialization purposes:
+
+```php
+<?php
+
+namespace Application\DTO;
+
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
+class MyDTO
+{
+    #[Groups(['public'])]
+    #[SerializedName('id')]
+    private int $id;
+
+    #[Groups(['public'])]
+    #[SerializedName('name')]
+    private string $name;
+
+    #[Groups(['private', 'public'])]
+    #[SerializedName('email')]
+    private string $email;
+
+    public function __construct(int $id, string $name, string $email)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->email = $email;
+    }
+
+    public function id(): int
+    {
+        return $this->id;
+    }
+
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    public function email(): string
+    {
+        return $this->email;
+    }
+}
+```
+
+### → Using SerializerManager in your Service Classes
+
+```php
+<?php
+
+namespace Application\Services;
+
+use WayOfDev\Serializer\SerializerManager;
+use Application\DTO\MyDTO;
+
+class MyService
+{
+    public function __construct(
+        private readonly SerializerManager $serializer,
+    ) {
+    }
+
+    public function someMethod(): void
+    {
+        $serializer = $serializer->getSerializer('json');
+        $dto = new MyDTO(1, 'John Doe', 'john@example.com');
+
+        $content = $serializer->normalize(
+            data: $dto,
+            context: ['groups' => ['private']]
+        );
+
+        $serialized = $serializer->serialize($content);
+    }
+}
+```
+
+### → Using ResponseFactory in Laravel Controllers
+
+Here's an example of how you can use the `ResponseFactory` in a Laravel controller:
+
+**Example Controller:**
+
+```php
+<?php
+
+namespace Laravel\Http\Controllers;
+
+use Application\DTO\MyDTO;
+use Illuminate\Http\Request;
+use WayOfDev\Serializer\ResponseFactory;
+
+class MyController extends Controller
+{
+    private ResponseFactory $response;
+
+    public function __construct(ResponseFactory $response)
+    {
+        $this->response = $response;
+    }
+
+    public function index()
+    {
+        $dto = new MyDTO(1, 'John Doe', 'john@example.com');
+
+        $this->response->withContext(['groups' => ['private']]);
+        $this->response->withStatusCode(200);
+      
+        return $this->response->create($dto);
+    }
+}
+```
 
 <br>
 
