@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.0.3...v1.1.0) (2023-06-11)
+
+
+### Features
+
+* remove symfony/http-foundation dependency ([1b22a16](https://github.com/wayofdev/laravel-symfony-serializer/commit/1b22a167fc0892c77c1ba28503fc4edbfc6e52ef))
+
 ## [1.0.3](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.0.2...v1.0.3) (2023-06-11)
 
 
