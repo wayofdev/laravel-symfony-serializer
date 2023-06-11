@@ -7,42 +7,48 @@ use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 
 return [
     /*
-     * Name (format) of the default serializer that will be registered in SerializerManager.
+     * The 'default' key specifies the name (format) of the default serializer
+     * that will be registered in SerializerManager. This can be overridden
+     * by setting the SERIALIZER_DEFAULT_FORMAT environment variable.
      */
-    'default' => 'json',
+    'default' => env('SERIALIZER_DEFAULT_FORMAT', 'json'),
 
     /*
-     * Supported serializers: json, csv, xml, yaml
-     * Set serializer to false to disable it.
+     * The 'serializers' key lists the supported serializers: json, csv, xml, yaml.
+     * Set a serializer to "false" to disable it. This can be overridden by setting
+     * the corresponding SERIALIZER_USE_* environment variable.
      */
     'serializers' => [
-        'json' => true,
-        'csv' => false,
-        'xml' => false,
-        'yaml' => false,
+        'json' => env('SERIALIZER_USE_JSON', true),
+        'csv' => env('SERIALIZER_USE_CSV', false),
+        'xml' => env('SERIALIZER_USE_XML', false),
+        'yaml' => env('SERIALIZER_USE_YAML', false),
     ],
 
     /*
-     * Register your custom normalizers here.
-     * Default normalizers are registered in src/NormalizersRegistry.php
+     * The 'normalizers' key allows you to register your custom normalizers.
+     * Default normalizers are registered in src/NormalizersRegistry.php.
+     * Uncomment the line below and replace with your custom normalizer if needed
+     * to merge with default ones.
      */
     'normalizers' => [
         // Symfony\Component\Messenger\Transport\Serialization\Normalizer\FlattenExceptionNormalizer
     ],
 
     /*
-     * Register your custom encoders here.
-     * Default encoders are registered in src/EncodersRegistry.php
-     *
-     * Default encoders are:
-     * - Symfony\Component\Serializer\Encoder\JsonEncoder
-     * - Symfony\Component\Serializer\Encoder\CsvEncoder
-     * - Symfony\Component\Serializer\Encoder\XmlEncoder
-     * - Symfony\Component\Serializer\Encoder\YamlEncoder
+     * The 'encoders' key allows you to register your custom encoders.
+     * Default encoders are registered in src/EncodersRegistry.php.
+     * Default encoders include JsonEncoder, CsvEncoder, XmlEncoder, and YamlEncoder.
+     * Uncomment the line below and replace with your custom encoder if needed.
      */
     'encoders' => [
         // Symfony\Component\Serializer\Encoder\JsonEncoder
     ],
 
+    /*
+     * The 'metadata_loader' key specifies the loader for class metadata.
+     * The default loader uses Doctrine annotations. If you want to use a different
+     * metadata format (e.g., YAML, XML), you can replace this with a different loader.
+     */
     'metadata_loader' => new AnnotationLoader(new AnnotationReader()),
 ];
