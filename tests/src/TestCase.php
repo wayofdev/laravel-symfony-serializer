@@ -2,17 +2,29 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Package\Tests;
+namespace WayOfDev\Serializer\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use WayOfDev\Package\Bridge\Laravel\Providers\PackageServiceProvider;
+use WayOfDev\Serializer\Bridge\Laravel\Providers\SerializerServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config()->set('serializer.serializers', [
+            'json' => true,
+            'csv' => true,
+            'xml' => true,
+            'yaml' => true,
+        ]);
+    }
+
     protected function getPackageProviders($app): array
     {
         return [
-            PackageServiceProvider::class,
+            SerializerServiceProvider::class,
         ];
     }
 }
