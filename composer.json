@@ -1,6 +1,6 @@
 {
     "name": "wayofdev/laravel-symfony-serializer",
-    "description": "PHP package template with GitHub Actions",
+    "description": "Laravel wrapper around Symfony Serializer.",
     "type": "library",
     "license": "MIT",
     "homepage": "https://wayof.dev",
