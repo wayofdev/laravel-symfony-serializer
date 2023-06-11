@@ -55,17 +55,17 @@ final class SerializerManagerTest extends TestCase
     {
         $this::assertInstanceOf(
             Serializer::class,
-            $this->serializer->getSerializer('symfony-json')
+            $this->serializer->getSerializer('json')
         );
 
         $this::assertInstanceOf(
             Serializer::class,
-            $this->serializer->getSerializer('symfony-xml')
+            $this->serializer->getSerializer('xml')
         );
 
         $this::assertInstanceOf(
             Serializer::class,
-            $this->serializer->getSerializer('symfony-csv')
+            $this->serializer->getSerializer('csv')
         );
 
         $this->expectException(SerializerNotFoundException::class);

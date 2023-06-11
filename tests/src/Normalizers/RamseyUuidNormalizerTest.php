@@ -20,12 +20,12 @@ final class RamseyUuidNormalizerTest extends TestCase
         yield [
             '{"uuid":"1d96a152-9838-43a0-a189-159befc9e38f","name":"some"}',
             new Author(Uuid::fromString('1d96a152-9838-43a0-a189-159befc9e38f'), 'some'),
-            'symfony-json',
+            'json',
         ];
         yield [
             'uuid,name1d96a152-9838-43a0-a189-159befc9e38f,some',
             new Author(Uuid::fromString('1d96a152-9838-43a0-a189-159befc9e38f'), 'some'),
-            'symfony-csv',
+            'csv',
         ];
         yield [
             '{uuid:1d96a152-9838-43a0-a189-159befc9e38f,name:some}',
@@ -55,7 +55,7 @@ final class RamseyUuidNormalizerTest extends TestCase
         $result = $manager->unserialize(
             '{"uuid":"1d96a152-9838-43a0-a189-159befc9e38f","name":"some"}',
             Author::class,
-            'symfony-json'
+            'json'
         );
 
         $this::assertInstanceOf(Author::class, $result);

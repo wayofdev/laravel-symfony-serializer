@@ -32,4 +32,9 @@ readonly class SerializerManager implements SerializerInterface
     ): mixed {
         return $this->getSerializer($format ?? $this->defaultFormat)->unserialize($payload, $type);
     }
+
+    public function normalize(mixed $data, string $format = null, array $context = [])
+    {
+        return $this->getSerializer($format ?? $this->defaultFormat)->normalize($data, $format, $context);
+    }
 }

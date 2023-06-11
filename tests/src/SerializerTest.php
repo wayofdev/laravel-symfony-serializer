@@ -22,18 +22,18 @@ final class SerializerTest extends TestCase
 {
     public static function serializeDataProvider(): Traversable
     {
-        yield ['{"id":1,"text":"some","active":false,"views":3}', new Post(1, 'some', false, 3), 'symfony-json'];
-        yield ['id,text,active,views1,some,1,5', new Post(1, 'some', true, 5), 'symfony-csv'];
+        yield ['{"id":1,"text":"some","active":false,"views":3}', new Post(1, 'some', false, 3), 'json'];
+        yield ['id,text,active,views1,some,1,5', new Post(1, 'some', true, 5), 'csv'];
         yield ['{id:1,text:some,active:true,views:5}', new Post(1, 'some', true, 5), 'symfony-yaml'];
         yield [
             '<?xmlversion="1.0"?><response><id>1</id><text>some</text><active>1</active><views>5</views></response>',
             new Post(1, 'some', true, 5),
-            'symfony-xml',
+            'xml',
         ];
         yield [
             '{"id":1,"title":"Someproduct","price":100.0,"active":false,"product_views":5}',
             new Product(1, 'Some product', 100, false, 5),
-            'symfony-json',
+            'json',
         ];
         yield [
             '{"name":"USA","cities":[{"name":"Chicago","timezone":"America\/Chicago"},{"name":"NewYork","timezone":"America\/New_York"}]}',
@@ -41,7 +41,7 @@ final class SerializerTest extends TestCase
                 new City('Chicago', new DateTimeZone('America/Chicago')),
                 new City('New York', new DateTimeZone('America/New_York')),
             ]),
-            'symfony-json',
+            'json',
         ];
         yield [
             'name,cities.0.name,cities.0.timezone,cities.1.name,cities.1.timezoneUSA,Chicago,America/Chicago,"NewYork",America/New_York',
@@ -49,7 +49,7 @@ final class SerializerTest extends TestCase
                 new City('Chicago', new DateTimeZone('America/Chicago')),
                 new City('New York', new DateTimeZone('America/New_York')),
             ]),
-            'symfony-csv',
+            'csv',
         ];
         yield [
             '<?xmlversion="1.0"?><response><name>USA</name><cities><name>Chicago</name><timezone>America/Chicago</timezone></cities><cities><name>NewYork</name><timezone>America/New_York</timezone></cities></response>',
@@ -57,22 +57,22 @@ final class SerializerTest extends TestCase
                 new City('Chicago', new DateTimeZone('America/Chicago')),
                 new City('New York', new DateTimeZone('America/New_York')),
             ]),
-            'symfony-xml',
+            'xml',
         ];
         yield [
             '{"id":3,"registeredAt":"2023-06-05T22:12:55+00:00"}',
             new User(3, new DateTimeImmutable('2023-06-05T22:12:55+00:00')),
-            'symfony-json',
+            'json',
         ];
         yield [
             'id,registeredAt3,2023-06-05T22:12:55+00:00',
             new User(3, new DateTimeImmutable('2023-06-05T22:12:55+00:00')),
-            'symfony-csv',
+            'csv',
         ];
         yield [
             '<?xmlversion="1.0"?><response><id>3</id><registeredAt>2023-06-05T22:12:55+00:00</registeredAt></response>',
             new User(3, new DateTimeImmutable('2023-06-05T22:12:55+00:00')),
-            'symfony-xml',
+            'xml',
         ];
     }
 
@@ -94,7 +94,7 @@ final class SerializerTest extends TestCase
     {
         $manager = $this->app->get(SerializerManager::class);
 
-        $result = $manager->unserialize('{"id":1,"text":"some","active":false,"views":3}', Post::class, 'symfony-json');
+        $result = $manager->unserialize('{"id":1,"text":"some","active":false,"views":3}', Post::class, 'json');
         $this::assertInstanceOf(Post::class, $result);
         $this::assertSame(1, $result->id);
         $this::assertSame('some', $result->text);
@@ -103,7 +103,7 @@ final class SerializerTest extends TestCase
         $result = $manager->unserialize(
             '{"id":1,"text":"some","active":false,"views":3}',
             new Post(2, '', true, 1),
-            'symfony-json'
+            'json'
         );
         $this::assertInstanceOf(Post::class, $result);
         $this::assertSame(1, $result->id);
@@ -121,7 +121,7 @@ final class SerializerTest extends TestCase
         $result = $manager->unserialize(
             '{"id":1,"title":"Some product","price":100,"active":false,"product_views":5}',
             Product::class,
-            'symfony-json'
+            'json'
         );
         $this::assertInstanceOf(Product::class, $result);
         $this::assertSame(1, $result->id);
@@ -141,7 +141,7 @@ final class SerializerTest extends TestCase
         $result = $manager->unserialize(
             '{"name":"USA","cities":[{"name":"Chicago","timezone":"America\/Chicago"},{"name":"NewYork","timezone":"America\/New_York"}]}',
             Country::class,
-            'symfony-json'
+            'json'
         );
 
         $this::assertInstanceOf(Country::class, $result);
@@ -160,7 +160,7 @@ final class SerializerTest extends TestCase
         $result = $manager->unserialize(
             '{"id":3,"registeredAt":"2023-06-05T22:12:55+00:00"}',
             User::class,
-            'symfony-json'
+            'json'
         );
 
         $this::assertInstanceOf(User::class, $result);
@@ -178,7 +178,7 @@ final class SerializerTest extends TestCase
 
         $manager = $this->app->get(SerializerManager::class);
         /** @var Serializer $serializer */
-        $serializer = $manager->getSerializer('symfony-json');
+        $serializer = $manager->getSerializer('json');
 
         $product = new Product(1, 'Some product', 100, false, 5);
 

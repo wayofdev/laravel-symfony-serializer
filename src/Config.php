@@ -17,7 +17,7 @@ use function implode;
 final class Config implements ConfigRepository
 {
     private const REQUIRED_FIELDS = [
-        'default_serializer',
+        'default',
         'normalizers',
         'encoders',
         'metadata_loader',
@@ -34,7 +34,7 @@ final class Config implements ConfigRepository
         }
 
         return new self(
-            $config['default_serializer'],
+            $config['default'],
             $config['normalizers'],
             $config['encoders'],
             $config['metadata_loader']

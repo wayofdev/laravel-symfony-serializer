@@ -62,7 +62,7 @@ final class SerializerServiceProvider extends ServiceProvider
             $config = $app['config'];
 
             return Config::fromArray([
-                'default_serializer' => $config->get('serializer.default_serializer'),
+                'default' => $config->get('serializer.default'),
                 'normalizers' => $config->get('serializer.normalizers'),
                 'encoders' => $config->get('serializer.encoders'),
                 'metadata_loader' => $config->get('serializer.metadata_loader'),
@@ -109,9 +109,9 @@ final class SerializerServiceProvider extends ServiceProvider
             $serializer = $app->make(SymfonySerializerInterface::class);
 
             $serializers = [
-                'symfony-json' => new Serializer($serializer, 'json'),
-                'symfony-csv' => new Serializer($serializer, 'csv'),
-                'symfony-xml' => new Serializer($serializer, 'xml'),
+                'json' => new Serializer($serializer, 'json'),
+                'csv' => new Serializer($serializer, 'csv'),
+                'xml' => new Serializer($serializer, 'xml'),
             ];
 
             if (class_exists(Dumper::class)) {
