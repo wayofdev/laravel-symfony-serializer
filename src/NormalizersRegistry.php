@@ -69,7 +69,9 @@ class NormalizersRegistry implements NormalizersRegistryInterface
         return array_column($this->normalizers, 'normalizer');
     }
 
-    /** @psalm-param class-string $className */
+    /**
+     * @phpstan-param class-string $className
+     */
     public function has(string $className): bool
     {
         return isset($this->normalizers[$className]);

@@ -10,9 +10,13 @@ interface EncodersRegistryInterface
 {
     public function register(EncoderInterface $encoder): void;
 
-    /** @return EncoderInterface[] */
+    /**
+     * @return EncoderInterface[]
+     */
     public function all(): array;
 
-    /** @psalm-param class-string<EncoderInterface> $className */
+    /**
+     * @phpstan-param class-string<EncoderInterface> $className
+     */
     public function has(string $className): bool;
 }

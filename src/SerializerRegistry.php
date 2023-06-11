@@ -10,7 +10,9 @@ use WayOfDev\Serializer\Exceptions\SerializerNotFoundException;
 
 class SerializerRegistry implements SerializerRegistryInterface
 {
-    /** @var SerializerInterface[] */
+    /**
+     * @var SerializerInterface[]
+     */
     private array $serializers = [];
 
     public function __construct(array $serializers = [])

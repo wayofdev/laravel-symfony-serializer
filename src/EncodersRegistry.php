@@ -14,7 +14,9 @@ use function class_exists;
 
 class EncodersRegistry implements EncodersRegistryInterface
 {
-    /** @var array<class-string, EncoderInterface> */
+    /**
+     * @var array<class-string, EncoderInterface>
+     */
     private array $encoders = [];
 
     /**
@@ -47,7 +49,7 @@ class EncodersRegistry implements EncodersRegistryInterface
     }
 
     /**
-     * @psalm-param class-string<EncoderInterface> $className
+     * @phpstan-param class-string<EncoderInterface> $className
      */
     public function has(string $className): bool
     {
