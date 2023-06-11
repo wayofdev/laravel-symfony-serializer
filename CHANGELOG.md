@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.0.2...v1.0.3) (2023-06-11)
+
+
+### Bug Fixes
+
+* wrong response class returned by response factory ([3ff9318](https://github.com/wayofdev/laravel-symfony-serializer/commit/3ff9318403c5fb17945954a769d95fa2bf2bf9d9))
+
 ## [1.0.2](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.0.1...v1.0.2) (2023-06-11)
 
 
