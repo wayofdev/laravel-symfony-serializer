@@ -2,9 +2,6 @@
 
 declare(strict_types=1);
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
-
 return [
     /*
      * The 'default' key specifies the name (format) of the default serializer
@@ -44,11 +41,4 @@ return [
     'encoders' => [
         // Symfony\Component\Serializer\Encoder\JsonEncoder
     ],
-
-    /*
-     * The 'metadata_loader' key specifies the loader for class metadata.
-     * The default loader uses Doctrine annotations. If you want to use a different
-     * metadata format (e.g., YAML, XML), you can replace this with a different loader.
-     */
-    'metadata_loader' => new AnnotationLoader(new AnnotationReader()),
 ];

@@ -20,7 +20,6 @@ final class Config implements ConfigRepository
         'default',
         'normalizers',
         'encoders',
-        'metadata_loader',
     ];
 
     public static function fromArray(array $config): self
@@ -37,15 +36,13 @@ final class Config implements ConfigRepository
             $config['default'],
             $config['normalizers'],
             $config['encoders'],
-            $config['metadata_loader']
         );
     }
 
     public function __construct(
         private readonly string $defaultSerializer,
         private readonly array $normalizers,
-        private readonly array $encoders,
-        private readonly LoaderInterface $metadataLoader
+        private readonly array $encoders
     ) {
     }
 
@@ -66,6 +63,6 @@ final class Config implements ConfigRepository
 
     public function metadataLoader(): LoaderInterface
     {
-        return $this->metadataLoader ?? new AnnotationLoader(new AnnotationReader());
+        return new AnnotationLoader(new AnnotationReader());
     }
 }
