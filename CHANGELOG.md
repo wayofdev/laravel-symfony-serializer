@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.1...v1.1.2) (2023-06-19)
+
+
+### Bug Fixes
+
+* serialization error of serializer.php config when applying laravel config cache ([f18c00d](https://github.com/wayofdev/laravel-symfony-serializer/commit/f18c00dbd6f4bddcf32bd3b6da7400c09680652e))
+
 ## [1.1.1](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.0...v1.1.1) (2023-06-19)
 
 
