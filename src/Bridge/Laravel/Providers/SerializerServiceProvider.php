@@ -12,13 +12,13 @@ use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\SerializerInterface as SymfonySerializerInterface;
 use Symfony\Component\Yaml\Dumper;
 use WayOfDev\Serializer\Config;
 use WayOfDev\Serializer\Contracts\ConfigRepository;
 use WayOfDev\Serializer\Contracts\EncodersRegistryInterface;
 use WayOfDev\Serializer\Contracts\NormalizersRegistryInterface;
+use WayOfDev\Serializer\Contracts\SerializerInterface;
 use WayOfDev\Serializer\Contracts\SerializerRegistryInterface;
 use WayOfDev\Serializer\EncodersRegistry;
 use WayOfDev\Serializer\NormalizersRegistry;
@@ -65,7 +65,6 @@ final class SerializerServiceProvider extends ServiceProvider
                 'default' => $config->get('serializer.default'),
                 'normalizers' => $config->get('serializer.normalizers'),
                 'encoders' => $config->get('serializer.encoders'),
-                'metadata_loader' => $config->get('serializer.metadata_loader'),
             ]);
         });
     }
@@ -125,9 +124,7 @@ final class SerializerServiceProvider extends ServiceProvider
     private function registerLoader(): void
     {
         $this->app->singleton(LoaderInterface::class, function (Application $app): LoaderInterface {
-            $config = $app->make(ConfigRepository::class);
-
-            return $config->metadataLoader();
+            return $app->make(ConfigRepository::class)->metadataLoader();
         });
     }
 
