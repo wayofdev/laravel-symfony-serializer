@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.11](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.10...v1.1.11) (2023-06-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency symfony/serializer to v6.3.1 ([82f45a0](https://github.com/wayofdev/laravel-symfony-serializer/commit/82f45a095df54804ab086b3e1ecff6c33730079f))
+
 ## [1.1.10](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.9...v1.1.10) (2023-06-25)
 
 
