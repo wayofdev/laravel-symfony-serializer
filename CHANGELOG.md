@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.12](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.11...v1.1.12) (2023-06-27)
+
+
+### Miscellaneous
+
+* **deps:** update dependency orchestra/testbench to v8.5.9 ([b735a47](https://github.com/wayofdev/laravel-symfony-serializer/commit/b735a47545ac0fba5110632454335820ef1c6ff2))
+
 ## [1.1.11](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.10...v1.1.11) (2023-06-26)
 
 
