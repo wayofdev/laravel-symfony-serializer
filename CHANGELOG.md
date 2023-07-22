@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.25...v1.2.0) (2023-07-22)
+
+
+### Features
+
+* allow to pass custom normalizers, response factory is fluent now ([e62bda8](https://github.com/wayofdev/laravel-symfony-serializer/commit/e62bda838e2b67f68f26f20260260483eeac6fb9))
+
 ## [1.1.25](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.1.24...v1.1.25) (2023-07-19)
 
 
