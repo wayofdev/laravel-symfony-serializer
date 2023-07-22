@@ -33,12 +33,10 @@ class NormalizersRegistry implements NormalizersRegistryInterface
         protected readonly bool $debugMode,
         array $normalizers = []
     ) {
-        if ([] === $normalizers) {
-            $this->registerDefaultNormalizers();
-        } else {
-            foreach ($normalizers as $normalizer) {
-                $this->register($normalizer);
-            }
+        $this->registerDefaultNormalizers();
+
+        foreach ($normalizers as $normalizer) {
+            $this->register($normalizer);
         }
     }
 

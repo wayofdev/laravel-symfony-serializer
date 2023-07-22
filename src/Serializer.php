@@ -28,7 +28,7 @@ readonly class Serializer implements SerializerInterface
 
     public function unserialize(
         Stringable|string $payload,
-        object|string|null $type = null,
+        object|string $type = null,
         array $context = []
     ): mixed {
         if (null === $type) {
