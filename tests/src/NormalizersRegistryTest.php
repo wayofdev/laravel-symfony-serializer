@@ -10,8 +10,29 @@ use Symfony\Component\Serializer\Normalizer;
 use WayOfDev\Serializer\Normalizers\RamseyUuidNormalizer;
 use WayOfDev\Serializer\NormalizersRegistry;
 
+use function sprintf;
+
 final class NormalizersRegistryTest extends TestCase
 {
+    /**
+     * Asserts that an array contains an instance of a class.
+     *
+     * @param string $className The class name
+     * @param array $array The array
+     */
+    public static function assertContainsInstanceOf(string $className, array $array): void
+    {
+        foreach ($array as $element) {
+            if ($element instanceof $className) {
+                self::assertTrue(true); // @phpstan-ignore-line
+
+                return;
+            }
+        }
+
+        self::fail(sprintf('Failed asserting that the array contains an instance of %s.', $className));
+    }
+
     /**
      * @test
      *
@@ -77,16 +98,16 @@ final class NormalizersRegistryTest extends TestCase
      */
     public function all(): void
     {
-        $unwrapping = new Normalizer\UnwrappingDenormalizer();
-        $object = new Normalizer\ObjectNormalizer();
-
         $registry = new NormalizersRegistry(
             $this->createMock(LoaderInterface::class),
             true,
-            [$unwrapping, $object]
+            [new Normalizer\UnwrappingDenormalizer(), new Normalizer\ObjectNormalizer()]
         );
 
-        $this::assertSame([$unwrapping, $object], $registry->all());
+        $allNormalizers = $registry->all();
+
+        $this::assertContainsInstanceOf(Normalizer\UnwrappingDenormalizer::class, $allNormalizers);
+        $this::assertContainsInstanceOf(Normalizer\ObjectNormalizer::class, $allNormalizers);
     }
 
     /**

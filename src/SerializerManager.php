@@ -27,7 +27,7 @@ readonly class SerializerManager implements SerializerInterface
 
     public function unserialize(
         string|Stringable $payload,
-        string|object|null $type = null,
+        string|object $type = null,
         string $format = null
     ): mixed {
         return $this->getSerializer($format ?? $this->defaultFormat)->unserialize($payload, $type);
