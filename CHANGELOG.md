@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.5...v1.2.6) (2023-07-30)
+
+
+### Miscellaneous
+
+* **deps:** update dependency ergebnis/composer-normalize to v2.34.0 ([37b253d](https://github.com/wayofdev/laravel-symfony-serializer/commit/37b253db0d3111bf6e9d36251aaf124a6a5a60e3))
+
 ## [1.2.5](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.4...v1.2.5) (2023-07-30)
 
 
