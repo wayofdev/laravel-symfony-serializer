@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.3...v1.2.4) (2023-07-30)
+
+
+### Miscellaneous
+
+* **deps:** update dependency nunomaduro/larastan to v2.6.4 ([a52b7dd](https://github.com/wayofdev/laravel-symfony-serializer/commit/a52b7dd9a6cf86c99616d7484d2963e27fd3c4e9))
+
 ## [1.2.3](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.2...v1.2.3) (2023-07-25)
 
 
