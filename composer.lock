@@ -2622,16 +2622,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v6.3.0",
+            "version": "v6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "3af8ac1a3f98f6dbc55e10ae59c9e44bfc38dfaa"
+                "reference": "adb01fe097a4ee930db9258a3cc906b5beb5cf2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/3af8ac1a3f98f6dbc55e10ae59c9e44bfc38dfaa",
-                "reference": "3af8ac1a3f98f6dbc55e10ae59c9e44bfc38dfaa",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/adb01fe097a4ee930db9258a3cc906b5beb5cf2e",
+                "reference": "adb01fe097a4ee930db9258a3cc906b5beb5cf2e",
                 "shasum": ""
             },
             "require": {
@@ -2682,7 +2682,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v6.3.0"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v6.3.2"
             },
             "funding": [
                 {
@@ -2698,7 +2698,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-21T14:41:17+00:00"
+            "time": "2023-07-06T06:56:43+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -10993,16 +10993,16 @@
         },
         {
             "name": "wayofdev/cs-fixer-config",
-            "version": "v1.2.35",
+            "version": "v1.2.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wayofdev/php-cs-fixer-config.git",
-                "reference": "43062bc97630be83ad5f0540dbf62734aec7bcd5"
+                "reference": "893ddcc0b5a0216e436604420ec4ce73ddfff488"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wayofdev/php-cs-fixer-config/zipball/43062bc97630be83ad5f0540dbf62734aec7bcd5",
-                "reference": "43062bc97630be83ad5f0540dbf62734aec7bcd5",
+                "url": "https://api.github.com/repos/wayofdev/php-cs-fixer-config/zipball/893ddcc0b5a0216e436604420ec4ce73ddfff488",
+                "reference": "893ddcc0b5a0216e436604420ec4ce73ddfff488",
                 "shasum": ""
             },
             "require": {
@@ -11053,7 +11053,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-19T15:40:15+00:00"
+            "time": "2023-07-28T07:19:17+00:00"
         },
         {
             "name": "zbateson/mail-mime-parser",
