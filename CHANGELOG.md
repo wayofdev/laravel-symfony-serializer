@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.17](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.16...v1.2.17) (2023-08-05)
+
+
+### Miscellaneous
+
+* **deps:** update dependency phpstan/phpstan-deprecation-rules to v1.1.4 ([22dfa9d](https://github.com/wayofdev/laravel-symfony-serializer/commit/22dfa9df162fce83fd2c246717ab03b0df100cf5))
+
 ## [1.2.16](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.15...v1.2.16) (2023-08-04)
 
 
