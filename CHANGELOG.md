@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.18](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.17...v1.2.18) (2023-08-05)
+
+
+### Miscellaneous
+
+* **deps:** update dependency phpstan/phpstan to v1.10.27 ([56e2114](https://github.com/wayofdev/laravel-symfony-serializer/commit/56e2114534c363e8ee7a6fcdafa09487f026645e))
+
 ## [1.2.17](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.16...v1.2.17) (2023-08-05)
 
 
