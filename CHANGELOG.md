@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.33](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.32...v1.2.33) (2023-08-15)
+
+
+### Miscellaneous
+
+* **deps:** update dependency phpunit/phpunit to v10.3.1 ([4aa379a](https://github.com/wayofdev/laravel-symfony-serializer/commit/4aa379ae603bf81185097afbafc184f6575f60cf))
+
 ## [1.2.32](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.31...v1.2.32) (2023-08-14)
 
 
