@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.36](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.35...v1.2.36) (2023-08-21)
+
+
+### Miscellaneous
+
+* **deps:** update dependency pestphp/pest to v2.16.0 ([b6f57d4](https://github.com/wayofdev/laravel-symfony-serializer/commit/b6f57d4802c6eaca164d4cbcfa5e3eef3f9afe86))
+
 ## [1.2.35](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.34...v1.2.35) (2023-08-21)
 
 
