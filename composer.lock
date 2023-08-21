@@ -7199,16 +7199,16 @@
         },
         {
             "name": "pestphp/pest-plugin-arch",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-arch.git",
-                "reference": "90b971511fe04e597466fcb28a72261927b9fbc9"
+                "reference": "527ff8705c1bbbf49e729d4dce9bdb00b07c0424"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-arch/zipball/90b971511fe04e597466fcb28a72261927b9fbc9",
-                "reference": "90b971511fe04e597466fcb28a72261927b9fbc9",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-arch/zipball/527ff8705c1bbbf49e729d4dce9bdb00b07c0424",
+                "reference": "527ff8705c1bbbf49e729d4dce9bdb00b07c0424",
                 "shasum": ""
             },
             "require": {
@@ -7247,7 +7247,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-arch/tree/v2.3.0"
+                "source": "https://github.com/pestphp/pest-plugin-arch/tree/v2.3.1"
             },
             "funding": [
                 {
@@ -7259,7 +7259,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-21T08:19:53+00:00"
+            "time": "2023-08-21T08:38:17+00:00"
         },
         {
             "name": "pestphp/pest-plugin-laravel",
