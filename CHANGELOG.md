@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.43](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.42...v1.2.43) (2023-08-25)
+
+
+### Miscellaneous
+
+* **deps:** update dependency phpstan/phpstan-phpunit to v1.3.14 ([ee404ce](https://github.com/wayofdev/laravel-symfony-serializer/commit/ee404cee72539b379597b9df684375d3b197dee6))
+
 ## [1.2.42](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.41...v1.2.42) (2023-08-24)
 
 
