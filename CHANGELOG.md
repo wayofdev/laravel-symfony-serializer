@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.45](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.44...v1.2.45) (2023-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency symfony/serializer to v6.3.4 ([9027e5a](https://github.com/wayofdev/laravel-symfony-serializer/commit/9027e5ab01667d6fae428a31904cc77586ff82a5))
+
 ## [1.2.44](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.43...v1.2.44) (2023-08-25)
 
 
