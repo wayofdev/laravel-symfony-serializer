@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.52](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.51...v1.2.52) (2023-09-04)
+
+
+### Miscellaneous
+
+* **deps:** update actions/checkout action to v4 ([3bd2432](https://github.com/wayofdev/laravel-symfony-serializer/commit/3bd2432d03c6059991c4dfdb2148bce4ccfc01dc))
+
 ## [1.2.51](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.50...v1.2.51) (2023-09-04)
 
 
