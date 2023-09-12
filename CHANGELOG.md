@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.56](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.55...v1.2.56) (2023-09-12)
+
+
+### Miscellaneous
+
+* **deps:** update dependency wayofdev/cs-fixer-config to v1.2.58 ([d325b49](https://github.com/wayofdev/laravel-symfony-serializer/commit/d325b4943f81740c9baf7f5ffad67f25fa0134e6))
+
 ## [1.2.55](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.54...v1.2.55) (2023-09-08)
 
 
