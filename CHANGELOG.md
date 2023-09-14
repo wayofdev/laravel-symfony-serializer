@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.60](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.59...v1.2.60) (2023-09-14)
+
+
+### Miscellaneous
+
+* **deps:** update codecov/codecov-action action to v4 ([75d5901](https://github.com/wayofdev/laravel-symfony-serializer/commit/75d5901ba2ca0fb82abd940a3e1cdbf840c1597f))
+
 ## [1.2.59](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.58...v1.2.59) (2023-09-14)
 
 
