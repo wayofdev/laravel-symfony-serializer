@@ -6,7 +6,6 @@ namespace WayOfDev\Serializer;
 
 use ArrayObject;
 use Stringable;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 use WayOfDev\Serializer\Contracts\SerializerInterface;
 use WayOfDev\Serializer\Exceptions\UnsupportedTypeException;
@@ -43,9 +42,6 @@ readonly class Serializer implements SerializerInterface
         );
     }
 
-    /**
-     * @throws ExceptionInterface
-     */
     public function normalize(
         mixed $data,
         string $format = null,
