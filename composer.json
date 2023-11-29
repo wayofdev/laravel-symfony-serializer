@@ -18,8 +18,8 @@
         "php": "^8.2",
         "doctrine/annotations": "^2.0",
         "illuminate/http": "^10.15",
-        "symfony/property-access": "^6.3",
-        "symfony/serializer": "^6.3"
+        "symfony/property-access": "^7.0",
+        "symfony/serializer": "^7.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.31",
@@ -35,7 +35,7 @@
         "phpunit/phpunit": "^10.2",
         "ramsey/uuid": "^4.7",
         "roave/security-advisories": "dev-latest",
-        "symfony/yaml": "^6.3",
+        "symfony/yaml": "^7.0",
         "wayofdev/cs-fixer-config": "^1.2"
     },
     "suggest": {
