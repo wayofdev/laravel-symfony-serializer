@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WayOfDev\Tests\Functional\Bridge\Laravel\Providers;
 
+use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use WayOfDev\Serializer\Config;
@@ -16,36 +17,28 @@ use WayOfDev\Tests\Functional\TestCase;
 
 final class SerializerServiceProviderTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_registers_config(): void
     {
         self::assertTrue($this->app->bound(ConfigRepository::class));
         self::assertInstanceOf(Config::class, $this->app->make(ConfigRepository::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_registers_normalizers_registry(): void
     {
         self::assertTrue($this->app->bound(NormalizersRegistryInterface::class));
         self::assertInstanceOf(NormalizersRegistry::class, $this->app->make(NormalizersRegistryInterface::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_registers_encoders_registry(): void
     {
         self::assertTrue($this->app->bound(EncodersRegistryInterface::class));
         self::assertInstanceOf(EncodersRegistry::class, $this->app->make(EncodersRegistryInterface::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_registers_serializer(): void
     {
         self::assertTrue($this->app->bound(SerializerInterface::class));

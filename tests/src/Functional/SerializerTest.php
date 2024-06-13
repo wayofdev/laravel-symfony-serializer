@@ -7,6 +7,7 @@ namespace WayOfDev\Tests\Functional;
 use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Traversable;
 use WayOfDev\App\NestedObjects\City;
 use WayOfDev\App\NestedObjects\Country;
@@ -76,10 +77,8 @@ final class SerializerTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
     #[DataProvider('serializeDataProvider')]
+    #[Test]
     public function serialize(string $expected, mixed $payload, string $format): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -87,9 +86,7 @@ final class SerializerTest extends TestCase
         self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unserialize(): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -111,9 +108,7 @@ final class SerializerTest extends TestCase
         self::assertFalse($result->active);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unserialize_with_attributes(): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -131,9 +126,7 @@ final class SerializerTest extends TestCase
         self::assertSame(5, $result->views);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unserialize_nested_objects(): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -150,9 +143,7 @@ final class SerializerTest extends TestCase
         self::assertSame('NewYork', $result->cities[1]->name);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unserialize_date_time_interface(): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -169,9 +160,7 @@ final class SerializerTest extends TestCase
         self::assertSame('2023-06-05T22:12:55+00:00', $result->registeredAt->format('c'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function group_normalize(): void
     {
         // dd($this->app->make(SerializerManager::class));

@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 final class Item
 {
     #[Groups(['default', 'private'])]
-    private UuidInterface $id;
+    private readonly UuidInterface $id;
 
     #[Groups(['default'])]
     private string $key = 'magic_number';

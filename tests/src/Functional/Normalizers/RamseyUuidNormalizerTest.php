@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WayOfDev\Tests\Functional\Normalizers;
 
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Ramsey\Uuid\Uuid;
 use Traversable;
 use WayOfDev\App\Object\Author;
@@ -34,10 +35,8 @@ final class RamseyUuidNormalizerTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
     #[DataProvider('serializeDataProvider')]
+    #[Test]
     public function serialize(string $expected, mixed $payload, string $format): void
     {
         $manager = $this->app->get(SerializerManager::class);
@@ -45,9 +44,7 @@ final class RamseyUuidNormalizerTest extends TestCase
         self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unserialize(): void
     {
         $manager = $this->app->get(SerializerManager::class);

@@ -103,7 +103,7 @@
       <code><![CDATA[string]]></code>
     </ImplicitToStringCast>
     <InvalidDocblock>
-      <code><![CDATA[private SerializerInterface $serializer;]]></code>
+      <code><![CDATA[private readonly SerializerInterface $serializer;]]></code>
     </InvalidDocblock>
     <MixedAssignment>
       <code><![CDATA[$normalizedResponse]]></code>
@@ -149,6 +149,21 @@
       <code><![CDATA[bound]]></code>
       <code><![CDATA[bound]]></code>
     </PossiblyNullReference>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_registers_config]]></code>
+      <code><![CDATA[it_registers_encoders_registry]]></code>
+      <code><![CDATA[it_registers_normalizers_registry]]></code>
+      <code><![CDATA[it_registers_serializer]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/EncodersRegistryTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[all]]></code>
+      <code><![CDATA[construct_with_default_encoders]]></code>
+      <code><![CDATA[construct_with_encoders]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[register]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/Normalizers/RamseyUuidNormalizerTest.php">
     <MixedArgument>
@@ -167,13 +182,21 @@
       <code><![CDATA[get]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
+      <code><![CDATA[serialize]]></code>
       <code><![CDATA[serializeDataProvider]]></code>
+      <code><![CDATA[unserialize]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/NormalizersRegistryTest.php">
     <MixedAssignment>
       <code><![CDATA[$element]]></code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[all]]></code>
+      <code><![CDATA[construct_with_default_normalizers]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[register]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/ResponseFactoryTest.php">
     <MixedArgument>
@@ -183,6 +206,13 @@
       <code><![CDATA[app(SerializerManager::class)]]></code>
       <code><![CDATA[app(SerializerManager::class)]]></code>
     </MixedArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_creates_from_array_iterator]]></code>
+      <code><![CDATA[it_creates_response]]></code>
+      <code><![CDATA[it_creates_response_from_array]]></code>
+      <code><![CDATA[it_sets_non_default_status_code]]></code>
+      <code><![CDATA[it_uses_given_context]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/SerializerManagerTest.php">
     <MixedAssignment>
@@ -192,7 +222,11 @@
       <code><![CDATA[make]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
+      <code><![CDATA[bad_serializer]]></code>
+      <code><![CDATA[get_serializer]]></code>
+      <code><![CDATA[serialize]]></code>
       <code><![CDATA[serializeDataProvider]]></code>
+      <code><![CDATA[unserialize]]></code>
       <code><![CDATA[unserializeDataProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -227,7 +261,13 @@
       <code><![CDATA[get]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
+      <code><![CDATA[group_normalize]]></code>
+      <code><![CDATA[serialize]]></code>
       <code><![CDATA[serializeDataProvider]]></code>
+      <code><![CDATA[unserialize]]></code>
+      <code><![CDATA[unserialize_date_time_interface]]></code>
+      <code><![CDATA[unserialize_nested_objects]]></code>
+      <code><![CDATA[unserialize_with_attributes]]></code>
     </PossiblyUnusedMethod>
   </file>
 </files>

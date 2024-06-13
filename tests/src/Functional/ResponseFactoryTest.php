@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WayOfDev\Tests\Functional;
 
+use PHPUnit\Framework\Attributes\Test;
 use WayOfDev\App\Item;
 use WayOfDev\App\Object\Post;
 use WayOfDev\App\Response;
@@ -12,9 +13,7 @@ use WayOfDev\Serializer\SerializerManager;
 
 final class ResponseFactoryTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_creates_response(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));
@@ -29,9 +28,7 @@ final class ResponseFactoryTest extends TestCase
         self::assertEquals('{"id":1,"text":"Some text","active":true,"views":777}', $response->getContent());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_creates_from_array_iterator(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));
@@ -42,9 +39,7 @@ final class ResponseFactoryTest extends TestCase
         self::assertEquals('[{"id":"0cd74c72-8920-4e4e-86c3-19fdd5103514","key":"magic_number","value":12}]', $response->getContent());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_creates_response_from_array(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));
@@ -57,9 +52,7 @@ final class ResponseFactoryTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_sets_non_default_status_code(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));
@@ -71,9 +64,7 @@ final class ResponseFactoryTest extends TestCase
         self::assertEquals('{"id":"0cd74c72-8920-4e4e-86c3-19fdd5103514","key":"magic_number","value":12}', $response->getContent());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_uses_given_context(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));

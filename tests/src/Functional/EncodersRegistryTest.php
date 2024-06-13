@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WayOfDev\Tests\Functional;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Exception;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
@@ -14,9 +15,7 @@ use WayOfDev\Serializer\EncodersRegistry;
 
 final class EncodersRegistryTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function construct_with_default_encoders(): void
     {
         $registry = new EncodersRegistry();
@@ -29,9 +28,7 @@ final class EncodersRegistryTest extends TestCase
         self::assertTrue($registry->has(YamlEncoder::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function construct_with_encoders(): void
     {
         $registry = new EncodersRegistry([new JsonEncoder(), new CsvEncoder()]);
@@ -44,9 +41,7 @@ final class EncodersRegistryTest extends TestCase
         self::assertFalse($registry->has(YamlEncoder::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function register(): void
     {
         $registry = new EncodersRegistry();
@@ -63,9 +58,7 @@ final class EncodersRegistryTest extends TestCase
         self::assertTrue($registry->has($encoder::class));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function all(): void
     {
         $json = new JsonEncoder();
@@ -76,10 +69,9 @@ final class EncodersRegistryTest extends TestCase
     }
 
     /**
-     * @test
-     *
      * @throws Exception
      */
+    #[Test]
     public function has(): void
     {
         $encoder = $this->createMock(EncoderInterface::class);

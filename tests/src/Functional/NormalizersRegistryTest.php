@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WayOfDev\Tests\Functional;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Exception;
 use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
 use Symfony\Component\Serializer\Normalizer;
@@ -34,10 +35,9 @@ final class NormalizersRegistryTest extends TestCase
     }
 
     /**
-     * @test
-     *
      * @throws Exception
      */
+    #[Test]
     public function construct_with_default_normalizers(): void
     {
         $registry = new NormalizersRegistry(
@@ -65,10 +65,9 @@ final class NormalizersRegistryTest extends TestCase
     }
 
     /**
-     * @test
-     *
      * @throws Exception
      */
+    #[Test]
     public function register(): void
     {
         $registry = new NormalizersRegistry(
@@ -92,10 +91,9 @@ final class NormalizersRegistryTest extends TestCase
     }
 
     /**
-     * @test
-     *
      * @throws Exception
      */
+    #[Test]
     public function all(): void
     {
         $registry = new NormalizersRegistry(
@@ -111,10 +109,9 @@ final class NormalizersRegistryTest extends TestCase
     }
 
     /**
-     * @test
-     *
      * @throws Exception
      */
+    #[Test]
     public function has(): void
     {
         $normalizer = $this->createMock(Normalizer\NormalizerInterface::class);

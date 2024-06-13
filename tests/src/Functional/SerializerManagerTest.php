@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WayOfDev\Tests\Functional;
 
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Stringable;
 use Traversable;
 use WayOfDev\Serializer\Exceptions\SerializerNotFoundException;
@@ -48,9 +49,7 @@ final class SerializerManagerTest extends TestCase
         $this->serializer = $this->app->make(SerializerManager::class);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function get_serializer(): void
     {
         self::assertInstanceOf(
@@ -72,18 +71,14 @@ final class SerializerManagerTest extends TestCase
         $this->serializer->getSerializer('bad');
     }
 
-    /**
-     * @test
-     */
     #[DataProvider('serializeDataProvider')]
+    #[Test]
     public function serialize(mixed $payload, string $expected, ?string $format = null): void
     {
         self::assertSame($expected, $this->serializer->serialize($payload, $format));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function bad_serializer(): void
     {
         $this->expectException(SerializerNotFoundException::class);
@@ -93,10 +88,8 @@ final class SerializerManagerTest extends TestCase
         $this->serializer->unserialize('payload', 'bad');
     }
 
-    /**
-     * @test
-     */
     #[DataProvider('unserializeDataProvider')]
+    #[Test]
     public function unserialize(string|Stringable $payload, mixed $expected, ?string $format = null): void
     {
         self::assertSame($expected, $this->serializer->unserialize($payload, format: $format));

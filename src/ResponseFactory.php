@@ -12,7 +12,7 @@ final class ResponseFactory
     /**
      * @property SerializerInterface $serializer
      */
-    private SerializerInterface $serializer;
+    private readonly SerializerInterface $serializer;
 
     private array $context = [];
 
