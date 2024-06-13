@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
+  <file src="src/Bridge/Laravel/Console/Commands/PackageCommand.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[handle]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Bridge/Laravel/Providers/PackageServiceProvider.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[boot]]></code>
+    </PossiblyUnusedMethod>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[configurationIsCached]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="tests/src/Functional/Bridge/Laravel/Console/Commands/PackageCommandTest.php">
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[expectsOutput]]></code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_executes_the_package_command_successfully]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/Bridge/Laravel/Providers/PackageServiceProviderTest.php">
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[assertExitCode]]></code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_publishes_configuration]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/TestCase.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[faker]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="vendor/laravel/framework/src/Illuminate/Console/Command.php">
+    <MixedArgument>
+      <code><![CDATA[$arguments]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$this->name = $name]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[(array) $this->aliases]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code><![CDATA[$this->name]]></code>
+    </MixedAssignment>
+    <RedundantCast>
+      <code><![CDATA[(string) $this->help]]></code>
+    </RedundantCast>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(array) $this->aliases]]></code>
+    </RedundantCastGivenDocblockType>
+    <UninitializedProperty>
+      <code><![CDATA[$this->name]]></code>
+    </UninitializedProperty>
+  </file>
+</files>

@@ -2,6 +2,8 @@
 
 on:  # yamllint disable-line rule:truthy
   pull_request:
+    branches:
+      - master
 
 name: 🐞 Differential shell-check
 
@@ -10,7 +12,7 @@ permissions:
 
 jobs:
   shellcheck:
-    uses: wayofdev/gh-actions/.github/workflows/shellcheck.yml@master
+    uses: wayofdev/gh-actions/.github/workflows/shellcheck.yml@v3.1.1
     with:
       os: ubuntu-latest
       severity: warning

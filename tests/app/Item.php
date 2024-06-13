@@ -22,6 +22,11 @@ final class Item
     #[Groups(['private'])]
     private string $onlyForAdmin = 'secret';
 
+    public function __construct()
+    {
+        $this->id = Uuid::fromString('0cd74c72-8920-4e4e-86c3-19fdd5103514');
+    }
+
     public function id(): UuidInterface
     {
         return $this->id;
@@ -40,10 +45,5 @@ final class Item
     public function onlyForAdmin(): string
     {
         return $this->onlyForAdmin;
-    }
-
-    public function __construct()
-    {
-        $this->id = Uuid::fromString('0cd74c72-8920-4e4e-86c3-19fdd5103514');
     }
 }

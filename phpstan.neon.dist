@@ -2,14 +2,15 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
-    level: 5
+    level: 6
     paths:
         - config/
         - src/
         - tests/
-
-    checkMissingIterableValueType: false
+        - .php-cs-fixer.dist.php
+        - rector.php
+    excludePaths:
+        - tests/src/Arch
     checkOctaneCompatibility: true
     checkModelProperties: true
-
     tmpDir: .build/phpstan/

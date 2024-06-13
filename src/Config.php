@@ -22,11 +22,18 @@ final class Config implements ConfigRepository
         'encoders',
     ];
 
+    public function __construct(
+        private readonly string $defaultSerializer,
+        private readonly array $normalizers,
+        private readonly array $encoders
+    ) {
+    }
+
     public static function fromArray(array $config): self
     {
         $missingAttributes = array_diff(self::REQUIRED_FIELDS, array_keys($config));
 
-        if ([] !== $missingAttributes) {
+        if ($missingAttributes !== []) {
             throw MissingRequiredAttributes::fromArray(
                 implode(',', $missingAttributes)
             );
@@ -37,13 +44,6 @@ final class Config implements ConfigRepository
             $config['normalizers'],
             $config['encoders'],
         );
-    }
-
-    public function __construct(
-        private readonly string $defaultSerializer,
-        private readonly array $normalizers,
-        private readonly array $encoders
-    ) {
     }
 
     public function defaultSerializer(): string

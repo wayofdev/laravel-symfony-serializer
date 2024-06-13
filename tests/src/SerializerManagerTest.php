@@ -76,7 +76,7 @@ final class SerializerManagerTest extends TestCase
      * @test
      */
     #[DataProvider('serializeDataProvider')]
-    public function serialize(mixed $payload, string $expected, string $format = null): void
+    public function serialize(mixed $payload, string $expected, ?string $format = null): void
     {
         $this::assertSame($expected, $this->serializer->serialize($payload, $format));
     }
@@ -97,7 +97,7 @@ final class SerializerManagerTest extends TestCase
      * @test
      */
     #[DataProvider('unserializeDataProvider')]
-    public function unserialize(string|Stringable $payload, mixed $expected, string $format = null): void
+    public function unserialize(string|Stringable $payload, mixed $expected, ?string $format = null): void
     {
         $this::assertSame($expected, $this->serializer->unserialize($payload, format: $format));
     }

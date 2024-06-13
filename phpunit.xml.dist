@@ -6,10 +6,16 @@
          cacheResultFile=".build/phpunit/result.cache"
          failOnWarning="true"
          failOnRisky="true"
-         beStrictAboutOutputDuringTests="true">
+         executionOrder="random"
+         stderr="true"
+         beStrictAboutOutputDuringTests="true"
+>
+    <extensions>
+        <bootstrap class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
+    </extensions>
     <testsuites>
-        <testsuite name="Tests">
-            <directory>tests</directory>
+        <testsuite name="Functional Tests">
+            <directory>tests/src/Functional</directory>
         </testsuite>
     </testsuites>
     <coverage>
@@ -24,7 +30,7 @@
     </logging>
     <source>
         <include>
-            <directory suffix=".php">src</directory>
+            <directory>src</directory>
         </include>
     </source>
 </phpunit>

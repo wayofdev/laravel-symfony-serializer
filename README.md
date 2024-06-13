@@ -5,7 +5,6 @@
 <img width="456" src="https://raw.githubusercontent.com/wayofdev/laravel-symfony-serializer/master/assets/logo.gh-dark-mode-only.png#gh-dark-mode-only">
 </div>
 
-
 <br>
 
 <br>
@@ -44,15 +43,15 @@ If you are building a REST API, working with queues, or have complex serializati
 Require as dependency:
 
 ```bash
-$ composer req wayofdev/laravel-symfony-serializer
+composer req wayofdev/laravel-symfony-serializer
 ```
 
 You can publish the config file with:
 
 ```bash
 $ php artisan vendor:publish \
-		--provider="WayOfDev\Serializer\Bridge\Laravel\Providers\SerializerServiceProvider" \
-		--tag="config"
+  --provider="WayOfDev\Serializer\Bridge\Laravel\Providers\SerializerServiceProvider" \
+  --tag="config"
 ```
 
 <br>
@@ -193,7 +192,7 @@ class MyController extends Controller
 To run phpunit and pest tests, run the following command:
 
 ```bash
-$ make test
+make test
 ```
 
 ### → Static Analysis
@@ -201,7 +200,7 @@ $ make test
 Code quality using PHPStan:
 
 ```bash
-$ make lint-stan
+make lint-stan
 ```
 
 ### → Coding Standards Fixing
@@ -209,7 +208,7 @@ $ make lint-stan
 Fix code using The PHP Coding Standards Fixer (PHP CS Fixer) to follow our standards:
 
 ```bash
-$ make lint-php
+make lint-php
 ```
 
 <br>
@@ -241,8 +240,7 @@ Thank you for considering contributing to the wayofdev community! We are open to
 
 This repository is based on code from following repositories:
 
-* [spiral/serializer](https://github.com/spiral/serializer)
-* [spiral-packages/symfony-serializer](https://github.com/spiral-packages/symfony-serializer)
-* [jeromegamez/ramsey-uuid-normalizer](https://github.com/jeromegamez/ramsey-uuid-normalizer)
-* [wayofdev/laravel-jms-serializer](https://github.com/wayofdev/laravel-jms-serializer)
-
+- [spiral/serializer](https://github.com/spiral/serializer)
+- [spiral-packages/symfony-serializer](https://github.com/spiral-packages/symfony-serializer)
+- [jeromegamez/ramsey-uuid-normalizer](https://github.com/jeromegamez/ramsey-uuid-normalizer)
+- [wayofdev/laravel-jms-serializer](https://github.com/wayofdev/laravel-jms-serializer)

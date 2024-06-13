@@ -57,7 +57,7 @@ final class SerializerServiceProvider extends ServiceProvider
 
     private function registerConfig(): void
     {
-        $this->app->singleton(ConfigRepository::class, function (Application $app) {
+        $this->app->singleton(ConfigRepository::class, static function (Application $app) {
             /** @var Repository $config */
             $config = $app['config'];
 
@@ -89,12 +89,12 @@ final class SerializerServiceProvider extends ServiceProvider
 
     private function registerEncodersRegistry(): void
     {
-        $this->app->singleton(EncodersRegistryInterface::class, function (Application $app): EncodersRegistryInterface {
+        $this->app->singleton(EncodersRegistryInterface::class, static function (Application $app): EncodersRegistryInterface {
             $config = $app->make(ConfigRepository::class);
 
             return new EncodersRegistry(
                 array_map(
-                    fn (string|EncoderInterface $encoder) => $encoder instanceof EncoderInterface ? $encoder : $app->get($encoder),
+                    static fn (string|EncoderInterface $encoder) => $encoder instanceof EncoderInterface ? $encoder : $app->get($encoder),
                     $config->encoders()
                 )
             );
@@ -103,7 +103,7 @@ final class SerializerServiceProvider extends ServiceProvider
 
     private function registerSerializerRegistry(): void
     {
-        $this->app->singleton(SerializerRegistryInterface::class, function (Application $app): SerializerRegistryInterface {
+        $this->app->singleton(SerializerRegistryInterface::class, static function (Application $app): SerializerRegistryInterface {
             // $config = $app->make(ConfigRepository::class);
             $serializer = $app->make(SymfonySerializerInterface::class);
 
@@ -123,14 +123,14 @@ final class SerializerServiceProvider extends ServiceProvider
 
     private function registerLoader(): void
     {
-        $this->app->singleton(LoaderInterface::class, function (Application $app): LoaderInterface {
+        $this->app->singleton(LoaderInterface::class, static function (Application $app): LoaderInterface {
             return $app->make(ConfigRepository::class)->metadataLoader();
         });
     }
 
     private function registerSerializerManager(): void
     {
-        $this->app->singleton(SerializerManager::class, function (Application $app): SerializerManager {
+        $this->app->singleton(SerializerManager::class, static function (Application $app): SerializerManager {
             /** @var Config $config */
             $config = $app->make(ConfigRepository::class);
             $serializers = $app->make(SerializerRegistryInterface::class);
@@ -143,7 +143,7 @@ final class SerializerServiceProvider extends ServiceProvider
 
     private function registerSymfonySerializer(): void
     {
-        $this->app->singleton(SymfonySerializerInterface::class, function (Application $app): SymfonySerializer {
+        $this->app->singleton(SymfonySerializerInterface::class, static function (Application $app): SymfonySerializer {
             $normalizers = $app->make(NormalizersRegistryInterface::class);
             $encoders = $app->make(EncodersRegistryInterface::class);
 

@@ -26,7 +26,9 @@ final class SerializerServiceProviderTest extends TestCase
         $this::assertInstanceOf(Config::class, $this->app->make(ConfigRepository::class));
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_registers_normalizers_registry(): void
     {
         $this::assertTrue($this->app->bound(NormalizersRegistryInterface::class));
@@ -34,7 +36,9 @@ final class SerializerServiceProviderTest extends TestCase
         $this::assertInstanceOf(NormalizersRegistry::class, $this->app->make(NormalizersRegistryInterface::class));
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_registers_encoders_registry(): void
     {
         $this::assertTrue($this->app->bound(EncodersRegistryInterface::class));
@@ -42,7 +46,9 @@ final class SerializerServiceProviderTest extends TestCase
         $this::assertInstanceOf(EncodersRegistry::class, $this->app->make(EncodersRegistryInterface::class));
     }
 
-    /** @test */
+    /**
+     * @test
+     */
     public function it_registers_serializer(): void
     {
         $this::assertTrue($this->app->bound(SerializerInterface::class));

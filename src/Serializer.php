@@ -28,10 +28,10 @@ readonly class Serializer implements SerializerInterface
 
     public function unserialize(
         Stringable|string $payload,
-        object|string $type = null,
+        object|string|null $type = null,
         array $context = []
     ): mixed {
-        if (null === $type) {
+        if ($type === null) {
             throw new UnsupportedTypeException();
         }
 
@@ -48,23 +48,23 @@ readonly class Serializer implements SerializerInterface
      */
     public function normalize(
         mixed $data,
-        string $format = null,
+        ?string $format = null,
         array $context = []
     ): array|string|int|float|bool|ArrayObject|null {
         return $this->serializer->normalize($data, $format, $context);
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         return $this->serializer->denormalize($data, $type, $format, $context);
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $this->serializer->supportsNormalization($data, $format, $context);
     }
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return $this->serializer->supportsDenormalization($data, $type, $format, $context);
     }

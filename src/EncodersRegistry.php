@@ -24,7 +24,7 @@ class EncodersRegistry implements EncodersRegistryInterface
      */
     public function __construct(array $encoders = [])
     {
-        if ([] === $encoders) {
+        if ($encoders === []) {
             $this->registerDefaultEncoders();
         } else {
             foreach ($encoders as $encoder) {
