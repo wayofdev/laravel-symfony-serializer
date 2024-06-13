@@ -53,17 +53,17 @@ final class SerializerManagerTest extends TestCase
      */
     public function get_serializer(): void
     {
-        $this::assertInstanceOf(
+        self::assertInstanceOf(
             Serializer::class,
             $this->serializer->getSerializer('json')
         );
 
-        $this::assertInstanceOf(
+        self::assertInstanceOf(
             Serializer::class,
             $this->serializer->getSerializer('xml')
         );
 
-        $this::assertInstanceOf(
+        self::assertInstanceOf(
             Serializer::class,
             $this->serializer->getSerializer('csv')
         );
@@ -78,7 +78,7 @@ final class SerializerManagerTest extends TestCase
     #[DataProvider('serializeDataProvider')]
     public function serialize(mixed $payload, string $expected, ?string $format = null): void
     {
-        $this::assertSame($expected, $this->serializer->serialize($payload, $format));
+        self::assertSame($expected, $this->serializer->serialize($payload, $format));
     }
 
     /**
@@ -99,6 +99,6 @@ final class SerializerManagerTest extends TestCase
     #[DataProvider('unserializeDataProvider')]
     public function unserialize(string|Stringable $payload, mixed $expected, ?string $format = null): void
     {
-        $this::assertSame($expected, $this->serializer->unserialize($payload, format: $format));
+        self::assertSame($expected, $this->serializer->unserialize($payload, format: $format));
     }
 }

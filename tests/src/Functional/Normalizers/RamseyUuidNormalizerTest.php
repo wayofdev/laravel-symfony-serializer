@@ -42,7 +42,7 @@ final class RamseyUuidNormalizerTest extends TestCase
     {
         $manager = $this->app->get(SerializerManager::class);
 
-        $this::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
+        self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
     }
 
     /**
@@ -58,7 +58,7 @@ final class RamseyUuidNormalizerTest extends TestCase
             'json'
         );
 
-        $this::assertInstanceOf(Author::class, $result);
-        $this::assertSame('1d96a152-9838-43a0-a189-159befc9e38f', $result->uuid->toString());
+        self::assertInstanceOf(Author::class, $result);
+        self::assertSame('1d96a152-9838-43a0-a189-159befc9e38f', $result->uuid->toString());
     }
 }

@@ -21,12 +21,12 @@ final class EncodersRegistryTest extends TestCase
     {
         $registry = new EncodersRegistry();
 
-        $this::assertCount(4, $registry->all());
+        self::assertCount(4, $registry->all());
 
-        $this::assertTrue($registry->has(JsonEncoder::class));
-        $this::assertTrue($registry->has(CsvEncoder::class));
-        $this::assertTrue($registry->has(XmlEncoder::class));
-        $this::assertTrue($registry->has(YamlEncoder::class));
+        self::assertTrue($registry->has(JsonEncoder::class));
+        self::assertTrue($registry->has(CsvEncoder::class));
+        self::assertTrue($registry->has(XmlEncoder::class));
+        self::assertTrue($registry->has(YamlEncoder::class));
     }
 
     /**
@@ -36,12 +36,12 @@ final class EncodersRegistryTest extends TestCase
     {
         $registry = new EncodersRegistry([new JsonEncoder(), new CsvEncoder()]);
 
-        $this::assertCount(2, $registry->all());
+        self::assertCount(2, $registry->all());
 
-        $this::assertTrue($registry->has(JsonEncoder::class));
-        $this::assertTrue($registry->has(CsvEncoder::class));
-        $this::assertFalse($registry->has(XmlEncoder::class));
-        $this::assertFalse($registry->has(YamlEncoder::class));
+        self::assertTrue($registry->has(JsonEncoder::class));
+        self::assertTrue($registry->has(CsvEncoder::class));
+        self::assertFalse($registry->has(XmlEncoder::class));
+        self::assertFalse($registry->has(YamlEncoder::class));
     }
 
     /**
@@ -53,14 +53,14 @@ final class EncodersRegistryTest extends TestCase
 
         $encoder = $this->createMock(EncoderInterface::class);
 
-        $this::assertCount(4, $registry->all());
+        self::assertCount(4, $registry->all());
         $registry->register($encoder);
-        $this::assertCount(5, $registry->all());
-        $this::assertTrue($registry->has($encoder::class));
+        self::assertCount(5, $registry->all());
+        self::assertTrue($registry->has($encoder::class));
 
         $registry->register($encoder);
-        $this::assertCount(5, $registry->all());
-        $this::assertTrue($registry->has($encoder::class));
+        self::assertCount(5, $registry->all());
+        self::assertTrue($registry->has($encoder::class));
     }
 
     /**
@@ -72,7 +72,7 @@ final class EncodersRegistryTest extends TestCase
         $csv = new CsvEncoder();
 
         $registry = new EncodersRegistry([$json, $csv]);
-        $this::assertSame([$json, $csv], $registry->all());
+        self::assertSame([$json, $csv], $registry->all());
     }
 
     /**
@@ -85,9 +85,9 @@ final class EncodersRegistryTest extends TestCase
         $encoder = $this->createMock(EncoderInterface::class);
 
         $registry = new EncodersRegistry();
-        $this::assertFalse($registry->has($encoder::class));
+        self::assertFalse($registry->has($encoder::class));
 
         $registry->register($encoder);
-        $this::assertTrue($registry->has($encoder::class));
+        self::assertTrue($registry->has($encoder::class));
     }
 }

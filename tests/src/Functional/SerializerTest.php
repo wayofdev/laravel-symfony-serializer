@@ -84,7 +84,7 @@ final class SerializerTest extends TestCase
     {
         $manager = $this->app->get(SerializerManager::class);
 
-        $this::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
+        self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
     }
 
     /**
@@ -95,20 +95,20 @@ final class SerializerTest extends TestCase
         $manager = $this->app->get(SerializerManager::class);
 
         $result = $manager->unserialize('{"id":1,"text":"some","active":false,"views":3}', Post::class, 'json');
-        $this::assertInstanceOf(Post::class, $result);
-        $this::assertSame(1, $result->id);
-        $this::assertSame('some', $result->text);
-        $this::assertFalse($result->active);
+        self::assertInstanceOf(Post::class, $result);
+        self::assertSame(1, $result->id);
+        self::assertSame('some', $result->text);
+        self::assertFalse($result->active);
 
         $result = $manager->unserialize(
             '{"id":1,"text":"some","active":false,"views":3}',
             new Post(2, '', true, 1),
             'json'
         );
-        $this::assertInstanceOf(Post::class, $result);
-        $this::assertSame(1, $result->id);
-        $this::assertSame('some', $result->text);
-        $this::assertFalse($result->active);
+        self::assertInstanceOf(Post::class, $result);
+        self::assertSame(1, $result->id);
+        self::assertSame('some', $result->text);
+        self::assertFalse($result->active);
     }
 
     /**
@@ -123,12 +123,12 @@ final class SerializerTest extends TestCase
             Product::class,
             'json'
         );
-        $this::assertInstanceOf(Product::class, $result);
-        $this::assertSame(1, $result->id);
-        $this::assertSame('Some product', $result->title);
-        $this::assertSame(100.0, $result->price);
-        $this::assertFalse($result->active);
-        $this::assertSame(5, $result->views);
+        self::assertInstanceOf(Product::class, $result);
+        self::assertSame(1, $result->id);
+        self::assertSame('Some product', $result->title);
+        self::assertSame(100.0, $result->price);
+        self::assertFalse($result->active);
+        self::assertSame(5, $result->views);
     }
 
     /**
@@ -144,10 +144,10 @@ final class SerializerTest extends TestCase
             'json'
         );
 
-        $this::assertInstanceOf(Country::class, $result);
-        $this::assertSame('USA', $result->name);
-        $this::assertSame('Chicago', $result->cities[0]->name);
-        $this::assertSame('NewYork', $result->cities[1]->name);
+        self::assertInstanceOf(Country::class, $result);
+        self::assertSame('USA', $result->name);
+        self::assertSame('Chicago', $result->cities[0]->name);
+        self::assertSame('NewYork', $result->cities[1]->name);
     }
 
     /**
@@ -163,10 +163,10 @@ final class SerializerTest extends TestCase
             'json'
         );
 
-        $this::assertInstanceOf(User::class, $result);
-        $this::assertSame(3, $result->id);
-        $this::assertInstanceOf(DateTimeImmutable::class, $result->registeredAt);
-        $this::assertSame('2023-06-05T22:12:55+00:00', $result->registeredAt->format('c'));
+        self::assertInstanceOf(User::class, $result);
+        self::assertSame(3, $result->id);
+        self::assertInstanceOf(DateTimeImmutable::class, $result->registeredAt);
+        self::assertSame('2023-06-05T22:12:55+00:00', $result->registeredAt->format('c'));
     }
 
     /**
@@ -182,14 +182,14 @@ final class SerializerTest extends TestCase
 
         $product = new Product(1, 'Some product', 100, false, 5);
 
-        $this::assertSame(
+        self::assertSame(
             ['id' => 1, 'title' => 'Some product'],
             $serializer->normalize($product, null, ['groups' => 'group1'])
         );
-        $this::assertSame(
+        self::assertSame(
             ['price' => 100.0, 'active' => false],
             $serializer->normalize($product, null, ['groups' => 'group2'])
         );
-        $this::assertSame(['product_views' => 5], $serializer->normalize($product, null, ['groups' => 'group3']));
+        self::assertSame(['product_views' => 5], $serializer->normalize($product, null, ['groups' => 'group3']));
     }
 }

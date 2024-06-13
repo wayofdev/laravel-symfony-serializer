@@ -45,23 +45,23 @@ final class NormalizersRegistryTest extends TestCase
             true,
         );
 
-        $this::assertCount(15, $registry->all());
+        self::assertCount(15, $registry->all());
 
-        $this::assertTrue($registry->has(Normalizer\UnwrappingDenormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\ProblemNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\UidNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\JsonSerializableNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\DateTimeNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\ConstraintViolationListNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\MimeMessageNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\DateTimeZoneNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\DateIntervalNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\FormErrorNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\BackedEnumNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\DataUriNormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\ArrayDenormalizer::class));
-        $this::assertTrue($registry->has(Normalizer\ObjectNormalizer::class));
-        $this::assertTrue($registry->has(RamseyUuidNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\UnwrappingDenormalizer::class));
+        self::assertTrue($registry->has(Normalizer\ProblemNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\UidNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\JsonSerializableNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\DateTimeNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\ConstraintViolationListNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\MimeMessageNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\DateTimeZoneNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\DateIntervalNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\FormErrorNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\BackedEnumNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\DataUriNormalizer::class));
+        self::assertTrue($registry->has(Normalizer\ArrayDenormalizer::class));
+        self::assertTrue($registry->has(Normalizer\ObjectNormalizer::class));
+        self::assertTrue($registry->has(RamseyUuidNormalizer::class));
     }
 
     /**
@@ -80,15 +80,15 @@ final class NormalizersRegistryTest extends TestCase
         $normalizer2 = $this->createMock(Normalizer\DenormalizerInterface::class);
 
         $registry->register($normalizer, 2);
-        $this::assertCount(16, $registry->all());
-        $this::assertTrue($registry->has($normalizer::class));
+        self::assertCount(16, $registry->all());
+        self::assertTrue($registry->has($normalizer::class));
 
         $registry->register($normalizer2, 1);
-        $this::assertCount(17, $registry->all());
-        $this::assertTrue($registry->has($normalizer2::class));
+        self::assertCount(17, $registry->all());
+        self::assertTrue($registry->has($normalizer2::class));
 
-        $this::assertSame($normalizer2, $registry->all()[0]);
-        $this::assertSame($normalizer, $registry->all()[1]);
+        self::assertSame($normalizer2, $registry->all()[0]);
+        self::assertSame($normalizer, $registry->all()[1]);
     }
 
     /**
@@ -106,8 +106,8 @@ final class NormalizersRegistryTest extends TestCase
 
         $allNormalizers = $registry->all();
 
-        $this::assertContainsInstanceOf(Normalizer\UnwrappingDenormalizer::class, $allNormalizers);
-        $this::assertContainsInstanceOf(Normalizer\ObjectNormalizer::class, $allNormalizers);
+        self::assertContainsInstanceOf(Normalizer\UnwrappingDenormalizer::class, $allNormalizers);
+        self::assertContainsInstanceOf(Normalizer\ObjectNormalizer::class, $allNormalizers);
     }
 
     /**
@@ -123,9 +123,9 @@ final class NormalizersRegistryTest extends TestCase
             $this->createMock(LoaderInterface::class),
             true
         );
-        $this::assertFalse($registry->has($normalizer::class));
+        self::assertFalse($registry->has($normalizer::class));
 
         $registry->register($normalizer);
-        $this::assertTrue($registry->has($normalizer::class));
+        self::assertTrue($registry->has($normalizer::class));
     }
 }

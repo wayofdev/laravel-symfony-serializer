@@ -21,9 +21,8 @@ final class SerializerServiceProviderTest extends TestCase
      */
     public function it_registers_config(): void
     {
-        $this::assertTrue($this->app->bound(ConfigRepository::class));
-        // @phpstan-ignore-next-line
-        $this::assertInstanceOf(Config::class, $this->app->make(ConfigRepository::class));
+        self::assertTrue($this->app->bound(ConfigRepository::class));
+        self::assertInstanceOf(Config::class, $this->app->make(ConfigRepository::class));
     }
 
     /**
@@ -31,9 +30,8 @@ final class SerializerServiceProviderTest extends TestCase
      */
     public function it_registers_normalizers_registry(): void
     {
-        $this::assertTrue($this->app->bound(NormalizersRegistryInterface::class));
-        // @phpstan-ignore-next-line
-        $this::assertInstanceOf(NormalizersRegistry::class, $this->app->make(NormalizersRegistryInterface::class));
+        self::assertTrue($this->app->bound(NormalizersRegistryInterface::class));
+        self::assertInstanceOf(NormalizersRegistry::class, $this->app->make(NormalizersRegistryInterface::class));
     }
 
     /**
@@ -41,9 +39,8 @@ final class SerializerServiceProviderTest extends TestCase
      */
     public function it_registers_encoders_registry(): void
     {
-        $this::assertTrue($this->app->bound(EncodersRegistryInterface::class));
-        // @phpstan-ignore-next-line
-        $this::assertInstanceOf(EncodersRegistry::class, $this->app->make(EncodersRegistryInterface::class));
+        self::assertTrue($this->app->bound(EncodersRegistryInterface::class));
+        self::assertInstanceOf(EncodersRegistry::class, $this->app->make(EncodersRegistryInterface::class));
     }
 
     /**
@@ -51,8 +48,7 @@ final class SerializerServiceProviderTest extends TestCase
      */
     public function it_registers_serializer(): void
     {
-        $this::assertTrue($this->app->bound(SerializerInterface::class));
-        // @phpstan-ignore-next-line
-        $this::assertInstanceOf(Serializer::class, $this->app->make(SerializerInterface::class));
+        self::assertTrue($this->app->bound(SerializerInterface::class));
+        self::assertInstanceOf(Serializer::class, $this->app->make(SerializerInterface::class));
     }
 }
