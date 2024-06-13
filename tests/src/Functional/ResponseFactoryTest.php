@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests;
+namespace WayOfDev\Tests\Functional;
 
-use WayOfDev\Serializer\App\Item;
-use WayOfDev\Serializer\App\Object\Post;
-use WayOfDev\Serializer\App\Response;
+use WayOfDev\App\Item;
+use WayOfDev\App\Object\Post;
+use WayOfDev\App\Response;
 use WayOfDev\Serializer\ResponseFactory;
 use WayOfDev\Serializer\SerializerManager;
 
@@ -48,7 +48,7 @@ final class ResponseFactoryTest extends TestCase
     public function it_creates_response_from_array(): void
     {
         $responseFactory = new ResponseFactory(app(SerializerManager::class));
-        $response = $responseFactory->fromArray(require __DIR__ . '/../app/array.php');
+        $response = $responseFactory->fromArray(require __DIR__ . '/../../app/array.php');
 
         self::assertEquals(200, $response->getStatusCode());
         self::assertEquals(

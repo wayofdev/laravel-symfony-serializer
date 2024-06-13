@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\App\Object;
+namespace WayOfDev\App\Object;
 
 use DateTimeInterface;
 

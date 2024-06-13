@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests;
+namespace WayOfDev\Tests\Functional;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 use WayOfDev\Serializer\Bridge\Laravel\Providers\SerializerServiceProvider;

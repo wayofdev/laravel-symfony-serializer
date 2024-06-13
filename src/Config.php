@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace WayOfDev\Serializer;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
 use WayOfDev\Serializer\Contracts\ConfigRepository;
 use WayOfDev\Serializer\Exceptions\MissingRequiredAttributes;
@@ -63,6 +62,10 @@ final class Config implements ConfigRepository
 
     public function metadataLoader(): LoaderInterface
     {
-        return new AnnotationLoader(new AnnotationReader());
+        if (! empty($this->config['metadataLoader'])) {
+            return $this->config['metadataLoader'];
+        }
+
+        return new AttributeLoader();
     }
 }

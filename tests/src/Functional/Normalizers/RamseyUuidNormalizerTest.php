@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests\Normalizers;
+namespace WayOfDev\Tests\Functional\Normalizers;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use Ramsey\Uuid\Uuid;
 use Traversable;
-use WayOfDev\Serializer\App\Object\Author;
+use WayOfDev\App\Object\Author;
 use WayOfDev\Serializer\SerializerManager;
-use WayOfDev\Serializer\Tests\TestCase;
+use WayOfDev\Tests\Functional\TestCase;
 
 use function preg_replace;
 

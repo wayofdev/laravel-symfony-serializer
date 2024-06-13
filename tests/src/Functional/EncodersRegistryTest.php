@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests;
+namespace WayOfDev\Tests\Functional;
 
 use PHPUnit\Framework\MockObject\Exception;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;

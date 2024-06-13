@@ -31,7 +31,6 @@
     },
     "require": {
         "php": "^8.2",
-        "doctrine/annotations": "^2.0",
         "illuminate/http": "^11.0",
         "symfony/property-access": "^7.1",
         "symfony/serializer": "^7.1",
@@ -68,8 +67,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "WayOfDev\\Serializer\\App\\": "tests/app/",
-            "WayOfDev\\Serializer\\Tests\\": "tests/src/"
+            "WayOfDev\\App\\": "tests/app/",
+            "WayOfDev\\Tests\\": "tests/src/"
         }
     },
     "config": {

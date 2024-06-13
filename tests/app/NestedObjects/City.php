@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\App\NestedObjects;
+namespace WayOfDev\App\NestedObjects;
 
 use DateTimeZone;
 use JsonSerializable;

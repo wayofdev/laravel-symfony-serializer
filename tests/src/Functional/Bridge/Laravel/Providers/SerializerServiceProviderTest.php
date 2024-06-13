@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests\Bridge\Laravel\Providers;
+namespace WayOfDev\Tests\Functional\Bridge\Laravel\Providers;
 
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -12,7 +12,7 @@ use WayOfDev\Serializer\Contracts\EncodersRegistryInterface;
 use WayOfDev\Serializer\Contracts\NormalizersRegistryInterface;
 use WayOfDev\Serializer\EncodersRegistry;
 use WayOfDev\Serializer\NormalizersRegistry;
-use WayOfDev\Serializer\Tests\TestCase;
+use WayOfDev\Tests\Functional\TestCase;
 
 final class SerializerServiceProviderTest extends TestCase
 {

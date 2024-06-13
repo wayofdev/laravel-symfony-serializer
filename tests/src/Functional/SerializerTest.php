@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\Tests;
+namespace WayOfDev\Tests\Functional;
 
 use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Traversable;
-use WayOfDev\Serializer\App\NestedObjects\City;
-use WayOfDev\Serializer\App\NestedObjects\Country;
-use WayOfDev\Serializer\App\Object\Post;
-use WayOfDev\Serializer\App\Object\Product;
-use WayOfDev\Serializer\App\Object\User;
+use WayOfDev\App\NestedObjects\City;
+use WayOfDev\App\NestedObjects\Country;
+use WayOfDev\App\Object\Post;
+use WayOfDev\App\Object\Product;
+use WayOfDev\App\Object\User;
 use WayOfDev\Serializer\Serializer;
 use WayOfDev\Serializer\SerializerManager;
 

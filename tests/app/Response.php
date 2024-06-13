@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WayOfDev\Serializer\App;
+namespace WayOfDev\App;
 
 use ArrayIterator;
 use Webmozart\Assert\Assert;
