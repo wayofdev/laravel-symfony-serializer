@@ -156,6 +156,7 @@ final class SerializerServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(SymfonySerializer::class, SymfonySerializerInterface::class);
+        $this->app->alias(SymfonySerializerInterface::class, 'symfony.serializer');
     }
 
     private function registerSerializerManager(): void

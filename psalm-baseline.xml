@@ -68,6 +68,11 @@
       <code><![CDATA[it_gets_manager_from_facade]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/src/Functional/Bridge/Laravel/Facades/SerializerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_gets_symfony_serializer_from_facade]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="tests/src/Functional/Bridge/Laravel/Http/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[it_creates_from_array_iterator]]></code>
