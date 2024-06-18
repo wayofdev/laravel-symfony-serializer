@@ -24,7 +24,7 @@ final class Item
     private string $onlyForAdmin = 'secret';
 
     #[Groups(['default', 'private'])]
-    private ?DateTimeImmutable $dateTime;
+    private readonly ?DateTimeImmutable $dateTime;
 
     public function __construct(?DateTimeImmutable $dateTime = null)
     {

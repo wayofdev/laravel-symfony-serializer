@@ -4,6 +4,8 @@
         "Illuminate\\Console\\Command",
         "config_path",
         "Symfony\\Component\\Yaml\\Dumper",
-        "Illuminate\\Http\\Response"
+        "Illuminate\\Http\\Response",
+        "Illuminate\\Support\\Facades\\Facade",
+        "Illuminate\\Contracts\\Config\\Repository"
     ]
 }

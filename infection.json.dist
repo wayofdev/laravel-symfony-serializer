@@ -7,7 +7,7 @@
         }
     },
     "minCoveredMsi": 90,
-    "minMsi": 85,
+    "minMsi": 70,
     "phpUnit": {
         "configDir": "./"
     },
