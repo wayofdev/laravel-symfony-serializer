@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method WayOfDev\\\\Serializer\\\\Normalizers\\\\RamseyUuidNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Normalizers/RamseyUuidNormalizer.php
+
+		-
+			message: "#^Method WayOfDev\\\\Serializer\\\\Normalizers\\\\RamseyUuidNormalizer\\:\\:normalize\\(\\) return type with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Normalizers/RamseyUuidNormalizer.php
+
+		-
+			message: "#^Parameter \\#1 \\$object \\(Ramsey\\\\Uuid\\\\UuidInterface\\) of method WayOfDev\\\\Serializer\\\\Normalizers\\\\RamseyUuidNormalizer\\:\\:normalize\\(\\) should be contravariant with parameter \\$object \\(mixed\\) of method Symfony\\\\Component\\\\Serializer\\\\Normalizer\\\\NormalizerInterface\\:\\:normalize\\(\\)$#"
+			count: 1
+			path: src/Normalizers/RamseyUuidNormalizer.php

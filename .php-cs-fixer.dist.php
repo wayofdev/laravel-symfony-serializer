@@ -7,11 +7,12 @@ use WayOfDev\PhpCsFixer\Config\RuleSets\DefaultSet;
 
 require_once 'vendor/autoload.php';
 
-$config = ConfigBuilder::createFromRuleSet(new DefaultSet(['static_lambda' => false]))
+$config = ConfigBuilder::createFromRuleSet(new DefaultSet())
     ->inDir(__DIR__ . '/src')
     ->inDir(__DIR__ . '/config')
     ->inDir(__DIR__ . '/tests')
     ->addFiles([__FILE__])
+    ->useParallelConfig()
     ->getConfig()
 ;
 

@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace WayOfDev\Serializer\Exceptions;
 
 use InvalidArgumentException;
+use WayOfDev\Serializer\Contracts\SerializerException;
 
 use function sprintf;
 
-final class MissingRequiredAttributes extends InvalidArgumentException
+final class MissingRequiredAttributes extends InvalidArgumentException implements SerializerException
 {
     public static function fromArray(string $fields): self
     {

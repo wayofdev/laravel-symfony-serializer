@@ -8,9 +8,15 @@ use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
 
 interface ConfigRepository
 {
-    public function normalizers(): array;
+    /**
+     * @return class-string<NormalizerRegistrationStrategy>
+     */
+    public function normalizerRegistrationStrategy(): string;
 
-    public function encoders(): array;
+    /**
+     * @return class-string<EncoderRegistrationStrategy>
+     */
+    public function encoderRegistrationStrategy(): string;
 
     public function metadataLoader(): LoaderInterface;
 }
