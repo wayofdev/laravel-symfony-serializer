@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.0.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.60...v2.0.0) (2024-06-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* prepare for release 2.0
+
+### Features
+
+* add symfony serializer facade ([b0d0c04](https://github.com/wayofdev/laravel-symfony-serializer/commit/b0d0c0417f25cdb51048ef84fb5ef1c2b826e5ae))
+* prepare for release 2.0 ([ca5ef98](https://github.com/wayofdev/laravel-symfony-serializer/commit/ca5ef989cc25152611d063f2fa8dffc3ca4552ef))
+* support for laravel 11.x and symfony 7.x ([b05333d](https://github.com/wayofdev/laravel-symfony-serializer/commit/b05333d464805aa1dd535fec77662d0ff6dcbf9f))
+
+
+### Bug Fixes
+
+* remove database container support ([2e30104](https://github.com/wayofdev/laravel-symfony-serializer/commit/2e30104ed69ca6ce31ce9de5bed56d216f2c3343))
+
+
+### Dependencies
+
+* remove doctrine/annotations ([c694154](https://github.com/wayofdev/laravel-symfony-serializer/commit/c69415437573cbb4f4eb4b43257b29124f55eec7))
+
+
+### Code Refactoring
+
+* rewrote package to be more configurable and flexible ([32c3ceb](https://github.com/wayofdev/laravel-symfony-serializer/commit/32c3ceb10f8277c49d0aede645f962c3df30baae))
+
 ## [1.2.60](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.59...v1.2.60) (2023-09-14)
 
 
