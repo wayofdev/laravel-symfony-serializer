@@ -7,6 +7,8 @@ namespace WayOfDev\Serializer;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
 use WayOfDev\Serializer\Contracts\ConfigRepository;
+use WayOfDev\Serializer\Contracts\EncoderRegistrationStrategy;
+use WayOfDev\Serializer\Contracts\NormalizerRegistrationStrategy;
 use WayOfDev\Serializer\Exceptions\MissingRequiredAttributes;
 
 use function array_diff;
@@ -17,17 +19,33 @@ final class Config implements ConfigRepository
 {
     private const REQUIRED_FIELDS = [
         'default',
-        'normalizers',
-        'encoders',
+        'debug',
+        'normalizerRegistrationStrategy',
+        'encoderRegistrationStrategy',
+        'metadataLoader',
     ];
 
     public function __construct(
-        private readonly string $defaultSerializer,
-        private readonly array $normalizers,
-        private readonly array $encoders
+        private readonly string $defaultSerializer = 'symfony-json',
+        private readonly bool $debug = false,
+        /** @var class-string<NormalizerRegistrationStrategy> */
+        private readonly ?string $normalizerRegistrationStrategy = null,
+        /** @var class-string<EncoderRegistrationStrategy> */
+        private readonly ?string $encoderRegistrationStrategy = null,
+        /** @var class-string<LoaderInterface>|null */
+        private readonly ?string $metadataLoader = null,
     ) {
     }
 
+    /**
+     * @param array{
+     *     default: string,
+     *     debug: bool,
+     *     normalizerRegistrationStrategy: class-string<NormalizerRegistrationStrategy>,
+     *     encoderRegistrationStrategy: class-string<EncoderRegistrationStrategy>,
+     *     metadataLoader: class-string<LoaderInterface>|null,
+     * } $config
+     */
     public static function fromArray(array $config): self
     {
         $missingAttributes = array_diff(self::REQUIRED_FIELDS, array_keys($config));
@@ -40,30 +58,51 @@ final class Config implements ConfigRepository
 
         return new self(
             $config['default'],
-            $config['normalizers'],
-            $config['encoders'],
+            $config['debug'],
+            $config['normalizerRegistrationStrategy'],
+            $config['encoderRegistrationStrategy'],
+            $config['metadataLoader']
         );
     }
 
     public function defaultSerializer(): string
     {
-        return $this->defaultSerializer ?? 'json';
+        return $this->defaultSerializer;
     }
 
-    public function normalizers(): array
+    public function debug(): bool
     {
-        return $this->normalizers ?? [];
+        return $this->debug;
     }
 
-    public function encoders(): array
+    /**
+     * @return class-string<NormalizerRegistrationStrategy>
+     */
+    public function normalizerRegistrationStrategy(): string
     {
-        return $this->encoders ?? [];
+        if ($this->normalizerRegistrationStrategy === null) {
+            return DefaultNormalizerRegistrationStrategy::class;
+        }
+
+        return $this->normalizerRegistrationStrategy;
+    }
+
+    /**
+     * @return class-string<EncoderRegistrationStrategy>
+     */
+    public function encoderRegistrationStrategy(): string
+    {
+        if ($this->encoderRegistrationStrategy === null) {
+            return DefaultEncoderRegistrationStrategy::class;
+        }
+
+        return $this->encoderRegistrationStrategy;
     }
 
     public function metadataLoader(): LoaderInterface
     {
-        if (! empty($this->config['metadataLoader'])) {
-            return $this->config['metadataLoader'];
+        if ($this->metadataLoader !== null) {
+            return new ($this->metadataLoader);
         }
 
         return new AttributeLoader();

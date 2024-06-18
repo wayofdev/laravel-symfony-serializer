@@ -20,6 +20,7 @@ final class RamseyUuidNormalizer implements NormalizerInterface, DenormalizerInt
 {
     /**
      * @param UuidInterface $object
+     * @param array<array-key, mixed> $context
      *
      * @psalm-suppress MoreSpecificImplementedParamType
      */
@@ -28,11 +29,17 @@ final class RamseyUuidNormalizer implements NormalizerInterface, DenormalizerInt
         return $object->toString();
     }
 
+    /**
+     * @param array<array-key, mixed> $context
+     */
     public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof UuidInterface;
     }
 
+    /**
+     * @param array<array-key, mixed> $context
+     */
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): UuidInterface
     {
         try {
@@ -44,6 +51,9 @@ final class RamseyUuidNormalizer implements NormalizerInterface, DenormalizerInt
         }
     }
 
+    /**
+     * @param array<array-key, mixed> $context
+     */
     public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return is_string($data) && is_a($type, UuidInterface::class, true) && Uuid::isValid($data);

@@ -6,27 +6,32 @@ namespace WayOfDev\Tests\Functional\Normalizers;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Ramsey\Uuid\Uuid;
 use Traversable;
-use WayOfDev\App\Object\Author;
-use WayOfDev\Serializer\SerializerManager;
+use WayOfDev\App\Objects\Author;
+use WayOfDev\Serializer\Manager\SerializerManager;
 use WayOfDev\Tests\Functional\TestCase;
 
 use function preg_replace;
 
 final class RamseyUuidNormalizerTest extends TestCase
 {
+    /**
+     * @return Traversable<array{0: string, 1: mixed, 2: string}>
+     */
     public static function serializeDataProvider(): Traversable
     {
         yield [
             '{"uuid":"1d96a152-9838-43a0-a189-159befc9e38f","name":"some"}',
             new Author(Uuid::fromString('1d96a152-9838-43a0-a189-159befc9e38f'), 'some'),
-            'json',
+            'symfony-json',
         ];
         yield [
             'uuid,name1d96a152-9838-43a0-a189-159befc9e38f,some',
             new Author(Uuid::fromString('1d96a152-9838-43a0-a189-159befc9e38f'), 'some'),
-            'csv',
+            'symfony-csv',
         ];
         yield [
             '{uuid:1d96a152-9838-43a0-a189-159befc9e38f,name:some}',
@@ -35,24 +40,32 @@ final class RamseyUuidNormalizerTest extends TestCase
         ];
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     #[DataProvider('serializeDataProvider')]
     #[Test]
-    public function serialize(string $expected, mixed $payload, string $format): void
+    public function it_serializes_using_serializer_manager(string $expected, mixed $payload, string $format): void
     {
-        $manager = $this->app->get(SerializerManager::class);
+        $manager = $this->app?->get(SerializerManager::class);
 
         self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
     }
 
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws ContainerExceptionInterface
+     */
     #[Test]
-    public function unserialize(): void
+    public function it_deserializes_using_serialize_manager(): void
     {
-        $manager = $this->app->get(SerializerManager::class);
+        $manager = $this->app?->get(SerializerManager::class);
 
-        $result = $manager->unserialize(
+        $result = $manager->deserialize(
             '{"uuid":"1d96a152-9838-43a0-a189-159befc9e38f","name":"some"}',
             Author::class,
-            'json'
+            'symfony-json'
         );
 
         self::assertInstanceOf(Author::class, $result);

@@ -1052,16 +1052,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.10.0",
+            "version": "v11.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "99b4255194912044b75ab72329f8c19e6345720e"
+                "reference": "194102876df42f9f5bb618efa55fa7e15ebf40aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/99b4255194912044b75ab72329f8c19e6345720e",
-                "reference": "99b4255194912044b75ab72329f8c19e6345720e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/194102876df42f9f5bb618efa55fa7e15ebf40aa",
+                "reference": "194102876df42f9f5bb618efa55fa7e15ebf40aa",
                 "shasum": ""
             },
             "require": {
@@ -1164,7 +1164,7 @@
                 "league/flysystem-sftp-v3": "^3.0",
                 "mockery/mockery": "^1.6",
                 "nyholm/psr7": "^1.2",
-                "orchestra/testbench-core": "^9.0.15",
+                "orchestra/testbench-core": "^9.1.5",
                 "pda/pheanstalk": "^5.0",
                 "phpstan/phpstan": "^1.4.7",
                 "phpunit/phpunit": "^10.5|^11.0",
@@ -1253,20 +1253,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-06-04T13:45:55+00:00"
+            "time": "2024-06-18T17:40:27+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.23",
+            "version": "v0.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "9bc4df7c699b0452c6b815e64a2d84b6d7f99400"
+                "reference": "409b0b4305273472f3754826e68f4edbd0150149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/9bc4df7c699b0452c6b815e64a2d84b6d7f99400",
-                "reference": "9bc4df7c699b0452c6b815e64a2d84b6d7f99400",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/409b0b4305273472f3754826e68f4edbd0150149",
+                "reference": "409b0b4305273472f3754826e68f4edbd0150149",
                 "shasum": ""
             },
             "require": {
@@ -1309,9 +1309,9 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.23"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.24"
             },
-            "time": "2024-05-27T13:53:20+00:00"
+            "time": "2024-06-17T13:58:22+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -6820,16 +6820,16 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "9138b0ebffdd2c579eb4b0567ef3bef8c714fdc2"
+                "reference": "d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/9138b0ebffdd2c579eb4b0567ef3bef8c714fdc2",
-                "reference": "9138b0ebffdd2c579eb4b0567ef3bef8c714fdc2",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29",
+                "reference": "d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29",
                 "shasum": ""
             },
             "require": {
@@ -6837,14 +6837,14 @@
                 "phpunit/phpunit": "^6.5.0 || ^7.5.0 || ^8.5.19 || ^9.0.0 || ^10.0.0 || ^11.0.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.42.0",
+                "ergebnis/composer-normalize": "^2.43.0",
                 "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.25.1",
+                "ergebnis/php-cs-fixer-config": "^6.31.0",
                 "fakerphp/faker": "~1.20.0",
                 "psalm/plugin-phpunit": "~0.19.0",
                 "psr/container": "~1.0.0",
-                "rector/rector": "^1.0.4",
-                "vimeo/psalm": "^5.23.1"
+                "rector/rector": "^1.1.0",
+                "vimeo/psalm": "^5.24.0"
             },
             "type": "library",
             "extra": {
@@ -6883,7 +6883,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2024-04-08T06:35:34+00:00"
+            "time": "2024-06-16T18:21:35+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -7230,16 +7230,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.58.1",
+            "version": "v3.59.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "04e9424025677a86914b9a4944dbbf4060bb0aff"
+                "reference": "30ba9ecc2b0e5205e578fe29973c15653d9bfd29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/04e9424025677a86914b9a4944dbbf4060bb0aff",
-                "reference": "04e9424025677a86914b9a4944dbbf4060bb0aff",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/30ba9ecc2b0e5205e578fe29973c15653d9bfd29",
+                "reference": "30ba9ecc2b0e5205e578fe29973c15653d9bfd29",
                 "shasum": ""
             },
             "require": {
@@ -7269,16 +7269,16 @@
                 "symfony/stopwatch": "^5.4 || ^6.0 || ^7.0"
             },
             "require-dev": {
-                "facile-it/paraunit": "^1.3 || ^2.0",
-                "infection/infection": "^0.27.11",
+                "facile-it/paraunit": "^1.3 || ^2.3",
+                "infection/infection": "^0.29.5",
                 "justinrainbow/json-schema": "^5.2",
                 "keradus/cli-executor": "^2.1",
                 "mikey179/vfsstream": "^1.6.11",
                 "php-coveralls/php-coveralls": "^2.7",
                 "php-cs-fixer/accessible-object": "^1.1",
-                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.4",
-                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.4",
-                "phpunit/phpunit": "^9.6 || ^10.5.5 || ^11.0.2",
+                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.5",
+                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.5",
+                "phpunit/phpunit": "^9.6.19 || ^10.5.21 || ^11.2",
                 "symfony/var-dumper": "^5.4 || ^6.0 || ^7.0",
                 "symfony/yaml": "^5.4 || ^6.0 || ^7.0"
             },
@@ -7293,7 +7293,10 @@
             "autoload": {
                 "psr-4": {
                     "PhpCsFixer\\": "src/"
-                }
+                },
+                "exclude-from-classmap": [
+                    "src/Fixer/Internal/*"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -7318,7 +7321,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.58.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.59.3"
             },
             "funding": [
                 {
@@ -7326,7 +7329,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-29T16:39:07+00:00"
+            "time": "2024-06-16T14:17:03+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -8412,25 +8415,25 @@
         },
         {
             "name": "orchestra/canvas",
-            "version": "v9.0.2",
+            "version": "v9.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/canvas.git",
-                "reference": "1bb5fea96fbba7a63c1f6f80651ac670ceb1fb5e"
+                "reference": "bed541346ffae1b9246afae4d196e8fc10ac9067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/canvas/zipball/1bb5fea96fbba7a63c1f6f80651ac670ceb1fb5e",
-                "reference": "1bb5fea96fbba7a63c1f6f80651ac670ceb1fb5e",
+                "url": "https://api.github.com/repos/orchestral/canvas/zipball/bed541346ffae1b9246afae4d196e8fc10ac9067",
+                "reference": "bed541346ffae1b9246afae4d196e8fc10ac9067",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
                 "composer/semver": "^3.0",
-                "illuminate/console": "^11.1.1",
-                "illuminate/database": "^11.1.1",
-                "illuminate/filesystem": "^11.1.1",
-                "illuminate/support": "^11.1.1",
+                "illuminate/console": "^11.10",
+                "illuminate/database": "^11.10",
+                "illuminate/filesystem": "^11.10",
+                "illuminate/support": "^11.10",
                 "orchestra/canvas-core": "^9.0",
                 "orchestra/testbench-core": "^9.0",
                 "php": "^8.2",
@@ -8438,10 +8441,10 @@
                 "symfony/yaml": "^7.0"
             },
             "require-dev": {
-                "laravel/framework": "^11.1.1",
+                "laravel/framework": "^11.10",
                 "laravel/pint": "^1.6",
                 "mockery/mockery": "^1.6",
-                "phpstan/phpstan": "^1.10.6",
+                "phpstan/phpstan": "^1.11",
                 "phpunit/phpunit": "^11.0",
                 "spatie/laravel-ray": "^1.35"
             },
@@ -8481,9 +8484,9 @@
             "description": "Code Generators for Laravel Applications and Packages",
             "support": {
                 "issues": "https://github.com/orchestral/canvas/issues",
-                "source": "https://github.com/orchestral/canvas/tree/v9.0.2"
+                "source": "https://github.com/orchestral/canvas/tree/v9.0.3"
             },
-            "time": "2024-03-28T17:06:53+00:00"
+            "time": "2024-06-18T10:10:33+00:00"
         },
         {
             "name": "orchestra/canvas-core",
@@ -9560,16 +9563,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.11.4",
+            "version": "1.11.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9100a76ce8015b9aa7125b9171ae3a76887b6c82"
+                "reference": "490f0ae1c92b082f154681d7849aee776a7c1443"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9100a76ce8015b9aa7125b9171ae3a76887b6c82",
-                "reference": "9100a76ce8015b9aa7125b9171ae3a76887b6c82",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/490f0ae1c92b082f154681d7849aee776a7c1443",
+                "reference": "490f0ae1c92b082f154681d7849aee776a7c1443",
                 "shasum": ""
             },
             "require": {
@@ -9614,7 +9617,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-06T12:19:22+00:00"
+            "time": "2024-06-17T15:10:54+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -11156,16 +11159,16 @@
         },
         {
             "name": "sanmai/pipeline",
-            "version": "v6.10",
+            "version": "v6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sanmai/pipeline.git",
-                "reference": "cbd2ea30ba8bef596b8dad1adb9c92fb2987e430"
+                "reference": "a5fa2a6c6ca93efa37e7c24aab72f47448a6b110"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/cbd2ea30ba8bef596b8dad1adb9c92fb2987e430",
-                "reference": "cbd2ea30ba8bef596b8dad1adb9c92fb2987e430",
+                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/a5fa2a6c6ca93efa37e7c24aab72f47448a6b110",
+                "reference": "a5fa2a6c6ca93efa37e7c24aab72f47448a6b110",
                 "shasum": ""
             },
             "require": {
@@ -11209,7 +11212,7 @@
             "description": "General-purpose collections pipeline",
             "support": {
                 "issues": "https://github.com/sanmai/pipeline/issues",
-                "source": "https://github.com/sanmai/pipeline/tree/v6.10"
+                "source": "https://github.com/sanmai/pipeline/tree/v6.11"
             },
             "funding": [
                 {
@@ -11217,7 +11220,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-16T01:33:30+00:00"
+            "time": "2024-06-15T03:11:19+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -13270,16 +13273,16 @@
         },
         {
             "name": "wayofdev/cs-fixer-config",
-            "version": "v1.5.1",
+            "version": "v1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wayofdev/php-cs-fixer-config.git",
-                "reference": "1edacc13db903e85ab42d5ff7d5fc04d11663d8e"
+                "reference": "aa0aae244772672f617de6e74d85ff81532f7e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wayofdev/php-cs-fixer-config/zipball/1edacc13db903e85ab42d5ff7d5fc04d11663d8e",
-                "reference": "1edacc13db903e85ab42d5ff7d5fc04d11663d8e",
+                "url": "https://api.github.com/repos/wayofdev/php-cs-fixer-config/zipball/aa0aae244772672f617de6e74d85ff81532f7e82",
+                "reference": "aa0aae244772672f617de6e74d85ff81532f7e82",
                 "shasum": ""
             },
             "require": {
@@ -13295,10 +13298,10 @@
                 "phpstan/phpstan-phpunit": "^1.4",
                 "phpstan/phpstan-strict-rules": "^1.6",
                 "phpunit/phpunit": "^10.5",
-                "psalm/plugin-phpunit": "~0.19.0",
+                "psalm/plugin-phpunit": "^0.19",
                 "rector/rector": "^1.1",
                 "roave/infection-static-analysis-plugin": "^1.35",
-                "vimeo/psalm": "^5.23.1"
+                "vimeo/psalm": "^5.24"
             },
             "type": "library",
             "extra": {
@@ -13322,7 +13325,7 @@
                     "email": "the@wayof.dev"
                 }
             ],
-            "description": "Package adds custom rule-sets to php-cs-fixer",
+            "description": "🧹 Adds custom rule-sets to PHP CS Fixer for consistent coding standards.",
             "homepage": "https://wayof.dev",
             "keywords": [
                 "code-quality",
@@ -13337,6 +13340,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wayofdev/php-cs-fixer-config/issues",
+                "security": "https://github.com/wayofdev/php-cs-fixer-config/blob/master/.github/SECURITY.md",
                 "source": "https://github.com/wayofdev/php-cs-fixer-config"
             },
             "funding": [
@@ -13345,7 +13349,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-05T19:23:33+00:00"
+            "time": "2024-06-18T09:13:20+00:00"
         },
         {
             "name": "zbateson/mail-mime-parser",

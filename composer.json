@@ -58,7 +58,7 @@
         "wayofdev/cs-fixer-config": "^1.5"
     },
     "suggest": {
-        "symfony/yaml": "For using the YamlEncoder."
+        "symfony/yaml": "Required only if YamlEncoder support is needed."
     },
     "autoload": {
         "psr-4": {
@@ -118,7 +118,7 @@
         "stan:ci": "phpstan analyse --memory-limit=2G --error-format=github",
         "test": [
             "@putenv XDEBUG_MODE=coverage",
-            "pest --color=always"
+            "pest --color=always -v"
         ],
         "test:arch": [
             "@putenv XDEBUG_MODE=coverage",

@@ -15,6 +15,9 @@ final class City implements JsonSerializable
     ) {
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function jsonSerialize(): array
     {
         return [

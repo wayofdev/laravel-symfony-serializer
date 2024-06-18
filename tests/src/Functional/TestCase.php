@@ -12,13 +12,6 @@ abstract class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
-        config()->set('serializer.serializers', [
-            'json' => true,
-            'csv' => true,
-            'xml' => true,
-            'yaml' => true,
-        ]);
     }
 
     protected function getPackageProviders($app): array

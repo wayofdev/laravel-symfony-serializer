@@ -8,9 +8,22 @@ use Stringable;
 
 interface SerializerInterface
 {
-    public function serialize(mixed $payload): string|Stringable;
+    /**
+     * Serializes data in the appropriate format.
+     *
+     * @param array<string, mixed> $context Options normalizers/encoders have access to
+     */
+    public function serialize(mixed $payload, ?string $format = null, ?array $context = []): string|Stringable;
 
-    public function unserialize(string|Stringable $payload, string|object|null $type = null): mixed;
-
-    public function normalize(mixed $data, ?string $format = null, array $context = []);
+    /**
+     * Deserializes data into the given type.
+     *
+     * @param array<string, mixed> $context
+     */
+    public function deserialize(
+        string|Stringable $payload,
+        string|object|null $type = null,
+        ?string $format = null,
+        ?array $context = []
+    ): mixed;
 }

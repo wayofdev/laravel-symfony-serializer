@@ -1,211 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
+  <file src="src/Bridge/Laravel/Http/ResponseFactory.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[empty]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Bridge/Laravel/Providers/SerializerServiceProvider.php">
     <MixedArgument>
-      <code><![CDATA[$app->get(LoaderInterface::class)]]></code>
-      <code><![CDATA[$config->encoders()]]></code>
-      <code><![CDATA[$config->normalizers()]]></code>
-      <code><![CDATA[$encoders->all()]]></code>
-      <code><![CDATA[$normalizer]]></code>
-      <code><![CDATA[$normalizers->all()]]></code>
-      <code><![CDATA[$serializer]]></code>
-      <code><![CDATA[$serializers]]></code>
+      <code><![CDATA[$strategy]]></code>
+      <code><![CDATA[$strategy]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[array_map(
-                    static fn (string|EncoderInterface $encoder) => $encoder instanceof EncoderInterface ? $encoder : $app->get($encoder),
-                    $config->encoders()
-                )]]></code>
+      <code><![CDATA[[
+                'default' => $config->get('serializer.default'),
+                'debug' => $config->get('serializer.debug'),
+                'normalizerRegistrationStrategy' => $config->get('serializer.normalizerRegistrationStrategy'),
+                'encoderRegistrationStrategy' => $config->get('serializer.encoderRegistrationStrategy'),
+                'metadataLoader' => $config->get('serializer.metadataLoader'),
+            ]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$config]]></code>
-      <code><![CDATA[$config]]></code>
-      <code><![CDATA[$encoders]]></code>
-      <code><![CDATA[$normalizers]]></code>
-      <code><![CDATA[$serializer]]></code>
-      <code><![CDATA[$serializers]]></code>
+      <code><![CDATA[$strategy]]></code>
+      <code><![CDATA[$strategy]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code><![CDATA[LoaderInterface]]></code>
+      <code><![CDATA[EncoderRegistrationStrategy]]></code>
+      <code><![CDATA[NormalizerRegistrationStrategy]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall>
-      <code><![CDATA[all]]></code>
-      <code><![CDATA[all]]></code>
-      <code><![CDATA[encoders]]></code>
-      <code><![CDATA[metadataLoader]]></code>
-      <code><![CDATA[normalizers]]></code>
-    </MixedMethodCall>
     <MixedReturnStatement>
-      <code><![CDATA[$app->make(ConfigRepository::class)->metadataLoader()]]></code>
+      <code><![CDATA[$app->make($strategyFQCN)]]></code>
+      <code><![CDATA[$app->make($strategyFQCN, [
+                'loader' => $loader,
+                'debugMode' => $config->debug(),
+            ])]]></code>
     </MixedReturnStatement>
     <PossiblyUnusedMethod>
       <code><![CDATA[boot]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Config.php">
-    <MixedArgument>
-      <code><![CDATA[$config['default']]]></code>
-      <code><![CDATA[$config['encoders']]]></code>
-      <code><![CDATA[$config['normalizers']]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$this->config['metadataLoader']]]></code>
-    </MixedArrayAccess>
-    <MixedInferredReturnType>
-      <code><![CDATA[LoaderInterface]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$this->config['metadataLoader']]]></code>
-    </MixedReturnStatement>
-    <RedundantCondition>
-      <code><![CDATA[$this->defaultSerializer]]></code>
-      <code><![CDATA[$this->encoders]]></code>
-      <code><![CDATA[$this->normalizers]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA['json']]></code>
-      <code><![CDATA[[]]]></code>
-      <code><![CDATA[[]]]></code>
-    </TypeDoesNotContainType>
+    <DocblockTypeContradiction>
+      <code><![CDATA[$this->encoderRegistrationStrategy === null]]></code>
+      <code><![CDATA[$this->normalizerRegistrationStrategy === null]]></code>
+    </DocblockTypeContradiction>
+    <InvalidParamDefault>
+      <code><![CDATA[private]]></code>
+      <code><![CDATA[private]]></code>
+    </InvalidParamDefault>
   </file>
-  <file src="src/Contracts/ConfigRepository.php">
+  <file src="src/DefaultNormalizerRegistrationStrategy.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[encoders]]></code>
-      <code><![CDATA[metadataLoader]]></code>
-      <code><![CDATA[normalizers]]></code>
+      <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Contracts/SerializerInterface.php">
-    <MissingReturnType>
-      <code><![CDATA[normalize]]></code>
-    </MissingReturnType>
-  </file>
-  <file src="src/Contracts/SerializerRegistryInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[has]]></code>
-    </PossiblyUnusedMethod>
+  <file src="src/Manager/Serializer.php">
+    <PossiblyNullArgument>
+      <code><![CDATA[is_object($type) ? $type::class : $type]]></code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Normalizers/RamseyUuidNormalizer.php">
     <MixedArgument>
       <code><![CDATA[$data]]></code>
     </MixedArgument>
   </file>
-  <file src="src/NormalizersRegistry.php">
-    <MixedArgument>
-      <code><![CDATA[$normalizer]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$normalizer]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="src/ResponseFactory.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[string]]></code>
-    </ImplicitToStringCast>
-    <InvalidDocblock>
-      <code><![CDATA[private readonly SerializerInterface $serializer;]]></code>
-    </InvalidDocblock>
-    <MixedAssignment>
-      <code><![CDATA[$normalizedResponse]]></code>
-    </MixedAssignment>
+  <file src="tests/src/Functional/Bridge/Laravel/Facades/ManagerTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[empty]]></code>
+      <code><![CDATA[it_gets_manager_from_facade]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Serializer.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$context]]></code>
-    </MixedArgumentTypeCoercion>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[decode]]></code>
-      <code><![CDATA[denormalize]]></code>
-      <code><![CDATA[encode]]></code>
-      <code><![CDATA[supportsDecoding]]></code>
-      <code><![CDATA[supportsDenormalization]]></code>
-      <code><![CDATA[supportsEncoding]]></code>
-      <code><![CDATA[supportsNormalization]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/SerializerManager.php">
-    <MissingReturnType>
-      <code><![CDATA[normalize]]></code>
-    </MissingReturnType>
-  </file>
-  <file src="src/SerializerRegistry.php">
-    <MixedArgument>
-      <code><![CDATA[$serializer]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$name]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$serializer]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="tests/src/Functional/Bridge/Laravel/Providers/SerializerServiceProviderTest.php">
-    <PossiblyNullReference>
-      <code><![CDATA[bound]]></code>
-      <code><![CDATA[bound]]></code>
-      <code><![CDATA[bound]]></code>
-      <code><![CDATA[bound]]></code>
-    </PossiblyNullReference>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[it_registers_config]]></code>
-      <code><![CDATA[it_registers_encoders_registry]]></code>
-      <code><![CDATA[it_registers_normalizers_registry]]></code>
-      <code><![CDATA[it_registers_serializer]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/src/Functional/EncodersRegistryTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[all]]></code>
-      <code><![CDATA[construct_with_default_encoders]]></code>
-      <code><![CDATA[construct_with_encoders]]></code>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[register]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/src/Functional/Normalizers/RamseyUuidNormalizerTest.php">
-    <MixedArgument>
-      <code><![CDATA[$manager->serialize($payload, $format)]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[serialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-    </MixedMethodCall>
-    <PossiblyNullReference>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-    </PossiblyNullReference>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[serialize]]></code>
-      <code><![CDATA[serializeDataProvider]]></code>
-      <code><![CDATA[unserialize]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/src/Functional/NormalizersRegistryTest.php">
-    <MixedAssignment>
-      <code><![CDATA[$element]]></code>
-    </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[all]]></code>
-      <code><![CDATA[construct_with_default_normalizers]]></code>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[register]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/src/Functional/ResponseFactoryTest.php">
-    <MixedArgument>
-      <code><![CDATA[app(SerializerManager::class)]]></code>
-      <code><![CDATA[app(SerializerManager::class)]]></code>
-      <code><![CDATA[app(SerializerManager::class)]]></code>
-      <code><![CDATA[app(SerializerManager::class)]]></code>
-      <code><![CDATA[app(SerializerManager::class)]]></code>
-    </MixedArgument>
+  <file src="tests/src/Functional/Bridge/Laravel/Http/ResponseFactoryTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[it_creates_from_array_iterator]]></code>
       <code><![CDATA[it_creates_response]]></code>
@@ -214,60 +77,104 @@
       <code><![CDATA[it_uses_given_context]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/src/Functional/SerializerManagerTest.php">
-    <MixedAssignment>
-      <code><![CDATA[$this->serializer]]></code>
-    </MixedAssignment>
-    <PossiblyNullReference>
-      <code><![CDATA[make]]></code>
-    </PossiblyNullReference>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[bad_serializer]]></code>
-      <code><![CDATA[get_serializer]]></code>
-      <code><![CDATA[serialize]]></code>
-      <code><![CDATA[serializeDataProvider]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserializeDataProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/src/Functional/SerializerTest.php">
+  <file src="tests/src/Functional/Bridge/Laravel/Providers/SerializerServiceProviderTest.php">
     <MixedArgument>
-      <code><![CDATA[$manager->serialize($payload, $format)]]></code>
+      <code><![CDATA[$encoders]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$manager]]></code>
-      <code><![CDATA[$result]]></code>
+      <code><![CDATA[$encodersRegistry]]></code>
+      <code><![CDATA[$normalizersRegistry]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[getSerializer]]></code>
-      <code><![CDATA[serialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserialize]]></code>
+      <code><![CDATA[all]]></code>
+      <code><![CDATA[all]]></code>
     </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_registers_config]]></code>
+      <code><![CDATA[it_registers_encoders_registry]]></code>
+      <code><![CDATA[it_registers_loader]]></code>
+      <code><![CDATA[it_registers_normalizers_registry]]></code>
+      <code><![CDATA[it_registers_symfony_serializer_interface]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/ConfigTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$configArray]]></code>
+    </InvalidArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_creates_config_from_array]]></code>
+      <code><![CDATA[it_creates_config_with_default_metadata_loader]]></code>
+      <code><![CDATA[it_fails_to_create_config_due_to_missing_attributes]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/EncoderRegistryTest.php">
+    <MixedArgument>
+      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
+      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
+    </MixedArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
+      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
+    </PossiblyNullArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_creates_registry_with_default_encoders]]></code>
+      <code><![CDATA[it_creates_registry_with_user_defined_encoders]]></code>
+      <code><![CDATA[it_registers_additional_encoders]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/Manager/SerializerManagerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_returns_serializer_manager_with_default_format]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/Manager/SerializerRegistryTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_creates_registry_with_default_serializers]]></code>
+      <code><![CDATA[it_lists_all_serializers]]></code>
+      <code><![CDATA[it_registers_additional_serializers]]></code>
+      <code><![CDATA[it_throws_exception_for_missing_serializer]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/Manager/SerializerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[it_creates_serializer]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/NormalizerRegistryTest.php">
+    <MixedArgument>
+      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
+      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
+      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
+    </MixedArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[construct_with_default_normalizers]]></code>
+      <code><![CDATA[it_gets_all_registered_normalizers]]></code>
+      <code><![CDATA[it_has_normalizer_in_registry]]></code>
+      <code><![CDATA[it_registers_additional_normalizers]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Functional/Normalizers/RamseyUuidNormalizerTest.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[$manager->serialize($payload, $format)]]></code>
+    </ImplicitToStringCast>
     <PossiblyNullReference>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
+      <code><![CDATA[deserialize]]></code>
+      <code><![CDATA[serialize]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
-      <code><![CDATA[group_normalize]]></code>
-      <code><![CDATA[serialize]]></code>
+      <code><![CDATA[it_deserializes_using_serialize_manager]]></code>
+      <code><![CDATA[it_serializes_using_serializer_manager]]></code>
       <code><![CDATA[serializeDataProvider]]></code>
-      <code><![CDATA[unserialize]]></code>
-      <code><![CDATA[unserialize_date_time_interface]]></code>
-      <code><![CDATA[unserialize_nested_objects]]></code>
-      <code><![CDATA[unserialize_with_attributes]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/src/Unit/Normalizers/RamseyUuidNormalizerTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[denormalize_throws_exception_for_invalid_uuid]]></code>
+      <code><![CDATA[it_denormalizes]]></code>
+      <code><![CDATA[it_gets_supported_types]]></code>
+      <code><![CDATA[it_normalizes]]></code>
+      <code><![CDATA[it_supports_denormalization]]></code>
+      <code><![CDATA[it_supports_normalization]]></code>
     </PossiblyUnusedMethod>
   </file>
 </files>
