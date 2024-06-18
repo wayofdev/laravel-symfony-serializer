@@ -7,26 +7,23 @@ namespace WayOfDev\Serializer\Bridge\Laravel\Providers;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Symfony\Component\Serializer\Encoder\EncoderInterface;
 use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 use Symfony\Component\Serializer\SerializerInterface as SymfonySerializerInterface;
 use Symfony\Component\Yaml\Dumper;
 use WayOfDev\Serializer\Config;
 use WayOfDev\Serializer\Contracts\ConfigRepository;
-use WayOfDev\Serializer\Contracts\EncodersRegistryInterface;
-use WayOfDev\Serializer\Contracts\NormalizersRegistryInterface;
-use WayOfDev\Serializer\Contracts\SerializerInterface;
+use WayOfDev\Serializer\Contracts\EncoderRegistrationStrategy;
+use WayOfDev\Serializer\Contracts\EncoderRegistryInterface;
+use WayOfDev\Serializer\Contracts\NormalizerRegistrationStrategy;
+use WayOfDev\Serializer\Contracts\NormalizerRegistryInterface;
 use WayOfDev\Serializer\Contracts\SerializerRegistryInterface;
-use WayOfDev\Serializer\EncodersRegistry;
-use WayOfDev\Serializer\NormalizersRegistry;
-use WayOfDev\Serializer\Serializer;
-use WayOfDev\Serializer\SerializerManager;
-use WayOfDev\Serializer\SerializerRegistry;
+use WayOfDev\Serializer\EncoderRegistry;
+use WayOfDev\Serializer\Manager\Serializer;
+use WayOfDev\Serializer\Manager\SerializerManager;
+use WayOfDev\Serializer\Manager\SerializerRegistry;
+use WayOfDev\Serializer\NormalizerRegistry;
 
-use function array_map;
 use function class_exists;
 
 final class SerializerServiceProvider extends ServiceProvider
@@ -47,70 +44,94 @@ final class SerializerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../../../../config/serializer.php', 'serializer');
 
         $this->registerConfig();
-        $this->registerNormalizersRegistry();
-        $this->registerEncodersRegistry();
-        $this->registerSerializerRegistry();
         $this->registerLoader();
+        $this->registerNormalizerRegistry();
+        $this->registerEncoderRegistry();
+        $this->registerSerializerRegistry();
         $this->registerSerializerManager();
         $this->registerSymfonySerializer();
     }
 
     private function registerConfig(): void
     {
-        $this->app->singleton(ConfigRepository::class, function (Application $app) {
+        $this->app->singleton(ConfigRepository::class, static function (Application $app) {
             /** @var Repository $config */
-            $config = $app['config'];
+            $config = $app->get(Repository::class);
 
             return Config::fromArray([
                 'default' => $config->get('serializer.default'),
-                'normalizers' => $config->get('serializer.normalizers'),
-                'encoders' => $config->get('serializer.encoders'),
+                'debug' => $config->get('serializer.debug'),
+                'normalizerRegistrationStrategy' => $config->get('serializer.normalizerRegistrationStrategy'),
+                'encoderRegistrationStrategy' => $config->get('serializer.encoderRegistrationStrategy'),
+                'metadataLoader' => $config->get('serializer.metadataLoader'),
             ]);
         });
     }
 
-    private function registerNormalizersRegistry(): void
+    private function registerLoader(): void
     {
-        $this->app->singleton(NormalizersRegistryInterface::class, function (Application $app): NormalizersRegistryInterface {
+        $this->app->singleton(LoaderInterface::class, static function (Application $app): LoaderInterface {
+            /** @var Config $config */
             $config = $app->make(ConfigRepository::class);
 
-            $normalizers = array_map(fn (mixed $normalizer) => match (true) {
-                $normalizer instanceof NormalizerInterface, $normalizer instanceof DenormalizerInterface => $normalizer,
-                default => $this->app->get($normalizer)
-            }, $config->normalizers());
-
-            return new NormalizersRegistry(
-                $app->get(LoaderInterface::class),
-                true,
-                $normalizers
-            );
+            return $config->metadataLoader();
         });
     }
 
-    private function registerEncodersRegistry(): void
+    private function registerNormalizerRegistry(): void
     {
-        $this->app->singleton(EncodersRegistryInterface::class, function (Application $app): EncodersRegistryInterface {
+        $this->app->singleton(NormalizerRegistrationStrategy::class, static function (Application $app): NormalizerRegistrationStrategy {
+            /** @var Config $config */
             $config = $app->make(ConfigRepository::class);
 
-            return new EncodersRegistry(
-                array_map(
-                    fn (string|EncoderInterface $encoder) => $encoder instanceof EncoderInterface ? $encoder : $app->get($encoder),
-                    $config->encoders()
-                )
-            );
+            /** @var LoaderInterface $loader */
+            $loader = $app->get(LoaderInterface::class);
+
+            $strategyFQCN = $config->normalizerRegistrationStrategy();
+
+            return $app->make($strategyFQCN, [
+                'loader' => $loader,
+                'debugMode' => $config->debug(),
+            ]);
+        });
+
+        $this->app->singleton(NormalizerRegistryInterface::class, static function (Application $app): NormalizerRegistryInterface {
+            /** @var NormalizerRegistrationStrategy $strategy */
+            $strategy = $app->get(NormalizerRegistrationStrategy::class);
+
+            return new NormalizerRegistry($strategy);
+        });
+    }
+
+    private function registerEncoderRegistry(): void
+    {
+        $this->app->singleton(EncoderRegistrationStrategy::class, static function (Application $app): EncoderRegistrationStrategy {
+            /** @var Config $config */
+            $config = $app->make(ConfigRepository::class);
+
+            $strategyFQCN = $config->encoderRegistrationStrategy();
+
+            return $app->make($strategyFQCN);
+        });
+
+        $this->app->singleton(EncoderRegistryInterface::class, static function (Application $app): EncoderRegistryInterface {
+            /** @var EncoderRegistrationStrategy $strategy */
+            $strategy = $app->get(EncoderRegistrationStrategy::class);
+
+            return new EncoderRegistry($strategy);
         });
     }
 
     private function registerSerializerRegistry(): void
     {
-        $this->app->singleton(SerializerRegistryInterface::class, function (Application $app): SerializerRegistryInterface {
-            // $config = $app->make(ConfigRepository::class);
+        $this->app->singleton(SerializerRegistryInterface::class, static function (Application $app): SerializerRegistryInterface {
+            /** @var SymfonySerializer $serializer */
             $serializer = $app->make(SymfonySerializerInterface::class);
 
             $serializers = [
-                'json' => new Serializer($serializer, 'json'),
-                'csv' => new Serializer($serializer, 'csv'),
-                'xml' => new Serializer($serializer, 'xml'),
+                'symfony-json' => new Serializer($serializer, 'json'),
+                'symfony-csv' => new Serializer($serializer, 'csv'),
+                'symfony-xml' => new Serializer($serializer, 'xml'),
             ];
 
             if (class_exists(Dumper::class)) {
@@ -121,35 +142,37 @@ final class SerializerServiceProvider extends ServiceProvider
         });
     }
 
-    private function registerLoader(): void
+    private function registerSymfonySerializer(): void
     {
-        $this->app->singleton(LoaderInterface::class, function (Application $app): LoaderInterface {
-            return $app->make(ConfigRepository::class)->metadataLoader();
+        $this->app->singleton(SymfonySerializerInterface::class, static function (Application $app): SymfonySerializer {
+            /** @var NormalizerRegistryInterface $normalizers */
+            $normalizers = $app->make(NormalizerRegistryInterface::class);
+
+            /** @var EncoderRegistryInterface $encoders */
+            $encoders = $app->make(EncoderRegistryInterface::class);
+
+            return new SymfonySerializer(
+                $normalizers->all(),
+                $encoders->all()
+            );
         });
+
+        $this->app->singleton(SymfonySerializer::class, SymfonySerializerInterface::class);
+        $this->app->alias(SymfonySerializerInterface::class, 'symfony.serializer');
     }
 
     private function registerSerializerManager(): void
     {
-        $this->app->singleton(SerializerManager::class, function (Application $app): SerializerManager {
+        $this->app->singleton(SerializerManager::class, static function (Application $app): SerializerManager {
             /** @var Config $config */
             $config = $app->make(ConfigRepository::class);
+
+            /** @var SerializerRegistry $serializers */
             $serializers = $app->make(SerializerRegistryInterface::class);
 
             return new SerializerManager($serializers, $config->defaultSerializer());
         });
 
-        $this->app->alias(SerializerManager::class, SerializerInterface::class);
-    }
-
-    private function registerSymfonySerializer(): void
-    {
-        $this->app->singleton(SymfonySerializerInterface::class, function (Application $app): SymfonySerializer {
-            $normalizers = $app->make(NormalizersRegistryInterface::class);
-            $encoders = $app->make(EncodersRegistryInterface::class);
-
-            return new SymfonySerializer($normalizers->all(), $encoders->all());
-        });
-
-        $this->app->singleton(Serializer::class, SerializerInterface::class);
+        $this->app->alias(SerializerManager::class, 'serializer.manager');
     }
 }
