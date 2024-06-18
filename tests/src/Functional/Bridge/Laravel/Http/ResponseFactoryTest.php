@@ -83,11 +83,14 @@ final class ResponseFactoryTest extends TestCase
 
         $dateTime = new DateTimeImmutable();
 
-        $response = $responseFactory->create(new Item($dateTime));
+        $item = new Item($dateTime);
+        $item->email = 'some@email.com';
+
+        $response = $responseFactory->create($item);
 
         $formattedDateTime = $dateTime->format(DateTimeInterface::ATOM);
         $expectedResponse = sprintf(
-            '{"id":"0cd74c72-8920-4e4e-86c3-19fdd5103514","onlyForAdmin":"secret","dateTime":"%s"}',
+            '{"emailAddress":"some@email.com","id":"0cd74c72-8920-4e4e-86c3-19fdd5103514","onlyForAdmin":"secret","dateTime":"%s"}',
             $formattedDateTime
         );
 

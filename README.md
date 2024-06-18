@@ -24,7 +24,7 @@
     <strong>Quality</strong><br>
     <a href="https://app.codecov.io/gh/wayofdev/laravel-symfony-serializer" target="_blank"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/wayofdev/laravel-symfony-serializer?style=flat-square&logo=codecov"></a>
     <a href="https://dashboard.stryker-mutator.io/reports/github.com/wayofdev/laravel-symfony-serializer/master" target="_blank"><img alt="Mutation testing badge" src="https://img.shields.io/endpoint?style=flat-square&label=mutation%20score&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fwayofdev%2Flaravel-symfony-serializer%2Fmaster"></a>
-    <a href=""><img src="https://img.shields.io/badge/phpstan%20level-6%20of%209-yellowgreen?style=flat-square" alt="PHP Stan Level 6 of 9"></a>
+    <a href=""><img src="https://img.shields.io/badge/phpstan%20level-8%20of%209-brightgreen?style=flat-square" alt="PHP Stan Level 6 of 9"></a>
 </p>
 <p align="center">
     <strong>Community</strong><br>
@@ -201,43 +201,9 @@ class MyController extends Controller
 
 <br>
 
-## 🧪 Running Tests
+## 🔒 Security Policy
 
-### → PHPUnit tests
-
-To run phpunit and pest tests, run the following command:
-
-```bash
-make test
-```
-
-### → Static Analysis
-
-Code quality using PHPStan:
-
-```bash
-make lint-stan
-```
-
-### → Coding Standards Fixing
-
-Fix code using The PHP Coding Standards Fixer (PHP CS Fixer) to follow our standards:
-
-```bash
-make lint-php
-```
-
-<br>
-
-## 🤝 License
-
-[![Licence](https://img.shields.io/github/license/wayofdev/laravel-symfony-serializer?style=for-the-badge&color=blue)](./LICENSE)
-
-<br>
-
-## 🙆🏼‍♂️ Author Information
-
-Created in **2023** by [lotyp / wayofdev](https://github.com/wayofdev)
+This project has a [security policy](.github/SECURITY.md).
 
 <br>
 
@@ -245,18 +211,46 @@ Created in **2023** by [lotyp / wayofdev](https://github.com/wayofdev)
 
 Thank you for considering contributing to the wayofdev community! We are open to all kinds of contributions. If you want to:
 
-- 🤔 Suggest a feature
-- 🐛 Report an issue
-- 📖 Improve documentation
+- 🤔 [Suggest a feature](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+enhancement&projects=&template=2-feature-request.yml&title=%5BFeature%5D%3A+)
+- 🐛 [Report an issue](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=1-bug-report.yml&title=%5BBug%5D%3A+)
+- 📖 [Improve documentation](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=4-docs-bug-report.yml&title=%5BDocs%5D%3A+)
 - 👨‍💻 Contribute to the code
+
+You are more than welcome. Before contributing, kindly check our [contribution guidelines](.github/CONTRIBUTING.md).
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=for-the-badge)](https://conventionalcommits.org)
+
+<br>
+
+## 🫡 Contributors
+
+<p align="left">
+<a href="https://github.com/wayofdev/laravel-symfony-serializer/graphs/contributors">
+<img align="left" src="https://img.shields.io/github/contributors-anon/wayofdev/laravel-symfony-serializer?style=for-the-badge" alt="Contributors Badge"/>
+</a>
+<br>
+<br>
+</p>
+
+## 🌐 Social Links
+
+- **Twitter:** Follow our organization [@wayofdev](https://twitter.com/intent/follow?screen_name=wayofdev) and the author [@wlotyp](https://twitter.com/intent/follow?screen_name=wlotyp).
+- **Discord:** Join our community on [Discord](https://discord.gg/CE3TcCC5vr).
+
+<br>
+
+## ⚖️ License
+
+[![Licence](https://img.shields.io/github/license/wayofdev/laravel-symfony-serializer?style=for-the-badge&color=blue)](./LICENSE.md)
 
 <br>
 
 ## 🧱 Credits and Useful Resources
 
-This repository is based on code from following repositories:
+This repository is inspired by the following projects:
 
 - [spiral/serializer](https://github.com/spiral/serializer)
 - [spiral-packages/symfony-serializer](https://github.com/spiral-packages/symfony-serializer)
 - [jeromegamez/ramsey-uuid-normalizer](https://github.com/jeromegamez/ramsey-uuid-normalizer)
 - [wayofdev/laravel-jms-serializer](https://github.com/wayofdev/laravel-jms-serializer)
+- [symfony/serializer](https://github.com/symfony/serializer)

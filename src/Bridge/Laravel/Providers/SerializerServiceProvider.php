@@ -96,6 +96,7 @@ final class SerializerServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(NormalizerRegistryInterface::class, static function (Application $app): NormalizerRegistryInterface {
+            /** @var NormalizerRegistrationStrategy $strategy */
             $strategy = $app->get(NormalizerRegistrationStrategy::class);
 
             return new NormalizerRegistry($strategy);
@@ -114,6 +115,7 @@ final class SerializerServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(EncoderRegistryInterface::class, static function (Application $app): EncoderRegistryInterface {
+            /** @var EncoderRegistrationStrategy $strategy */
             $strategy = $app->get(EncoderRegistrationStrategy::class);
 
             return new EncoderRegistry($strategy);

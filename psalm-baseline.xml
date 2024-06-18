@@ -6,10 +6,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Bridge/Laravel/Providers/SerializerServiceProvider.php">
-    <MixedArgument>
-      <code><![CDATA[$strategy]]></code>
-      <code><![CDATA[$strategy]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[[
                 'default' => $config->get('serializer.default'),
@@ -19,10 +15,6 @@
                 'metadataLoader' => $config->get('serializer.metadataLoader'),
             ]]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$strategy]]></code>
-      <code><![CDATA[$strategy]]></code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[EncoderRegistrationStrategy]]></code>
       <code><![CDATA[NormalizerRegistrationStrategy]]></code>

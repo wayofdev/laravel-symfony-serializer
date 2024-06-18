@@ -8,9 +8,14 @@ use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 final class Item
 {
+    #[Groups(['default', 'private'])]
+    #[SerializedName('emailAddress')]
+    public string $email;
+
     #[Groups(['default', 'private'])]
     private readonly UuidInterface $id;
 
@@ -50,6 +55,11 @@ final class Item
     public function dateTime(): ?DateTimeImmutable
     {
         return $this->dateTime;
+    }
+
+    public function emailAddress(): string
+    {
+        return $this->email;
     }
 
     public function onlyForAdmin(): string
