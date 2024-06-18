@@ -31,7 +31,9 @@
     },
     "require": {
         "php": "^8.2",
+        "illuminate/contracts": "^11.0",
         "illuminate/http": "^11.0",
+        "illuminate/support": "^11.0",
         "ramsey/uuid": "^4.7",
         "symfony/property-access": "^7.1",
         "symfony/property-info": "^7.1",
