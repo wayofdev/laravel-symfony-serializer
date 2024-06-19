@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
-
 /**
  * @return array{
  *     default: string,
  *     debug: bool,
  *     normalizerRegistrationStrategy: class-string<WayOfDev\Serializer\Contracts\NormalizerRegistrationStrategy>,
  *     encoderRegistrationStrategy: class-string<WayOfDev\Serializer\Contracts\EncoderRegistrationStrategy>,
- *     metadataLoader: class-string<LoaderInterface>|null,
+ *     metadataLoader: class-string<Symfony\Component\Serializer\Mapping\Loader\LoaderInterface>|null,
  * }
  */
 return [
@@ -59,6 +57,8 @@ return [
 
     /*
      * Allows you to register your custom metadata loader.
+     *
+     * By default Symfony\Component\Serializer\Mapping\Loader\AttributeLoader is used.
      */
     'metadataLoader' => null,
 ];
