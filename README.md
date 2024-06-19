@@ -38,7 +38,7 @@
 
 This package integrates the Symfony Serializer component into Laravel, providing a powerful tool for serializing and deserializing objects into various formats such as JSON, XML, CSV, and YAML.
 
-Detailed documentation on the Symfony serializer can be found on their [official page](https://symfony.com/doc/current/components/serializer.html).
+Detailed documentation on the Symfony Serializer can be found on their [official page](https://symfony.com/doc/current/components/serializer.html).
 
 <br>
 
@@ -52,7 +52,7 @@ Detailed documentation on the Symfony serializer can be found on their [official
 - [Usage](#-usage)
   - [Components](#-components)
   - [Example DTO](#-example-dto)
-  - [Using `SerializerManager` in your Service Classes](#-using-serializermanager-in-your-service-classes)
+  - [Using `SerializerManager` in your Service Classes](#-using-serializermanager-in-service-classes)
   - [Using `ResponseFactory` in Laravel Controllers](#-using-responsefactory-in-laravel-controllers)
   - [Using in Laravel Queues](#-using-in-laravel-queues)
 - [Security Policy](#-security-policy)
@@ -62,11 +62,13 @@ Detailed documentation on the Symfony serializer can be found on their [official
 - [License](#-license)
 - [Credits and Useful Resources](#-credits-and-useful-resources)
 
+<br>
+
 ## 🤔 Purpose
 
-This package brings the power of the Symfony Serializer component to Laravel. While Laravel does not have a built-in serializer and typically relies on array or JSON transformations, this package provides more advanced serialization capabilities. This includes object normalization, handling of circular references, property grouping, and format-specific encoders.
+This package brings the power of the Symfony Serializer component to Laravel. While Laravel does not have a built-in serializer and typically relies on array or JSON transformations, this package provides more advanced serialization capabilities. These include object normalization, handling of circular references, property grouping, and format-specific encoders.
 
-If you are building a REST API, working with queues, or have complex serialization needs, this package will be especially useful. It allows you to use objects as payload instead of simple arrays, and supports various formats such as JSON, XML, CSV, and YAML. This documentation will guide you through the installation process and provide examples of how to use the package to serialize and deserialize your objects.
+If you are building a REST API, working with queues, or have complex serialization needs, this package will be especially useful. It allows you to use objects as payloads instead of simple arrays and supports various formats such as JSON, XML, CSV, and YAML. This documentation will guide you through the installation process and provide examples of how to use the package to serialize and deserialize your objects.
 
 <br>
 
@@ -76,10 +78,10 @@ If you are building a REST API, working with queues, or have complex serializati
 
 ## 💿 Installation
 
-Require as dependency:
+Require the package as a dependency:
 
 ```bash
-composer req wayofdev/laravel-symfony-serializer
+composer require wayofdev/laravel-symfony-serializer
 ```
 
 You can publish the config file with:
@@ -133,7 +135,7 @@ return [
 
 ### → Configuration Options
 
-- **`default`**: Specifies the default serializer format. This can be overridden by setting the `SERIALIZER_DEFAULT_FORMAT`environment variable. The default is `symfony-json`.
+- **`default`**: Specifies the default serializer format. This can be overridden by setting the `SERIALIZER_DEFAULT_FORMAT` environment variable. The default is `symfony-json`.
 - **`debug`**: Enables debug mode for `ProblemNormalizer`. This can be set using the `SERIALIZER_DEBUG_MODE` environment variable. It defaults to the `APP_DEBUG` value.
 - **`normalizerRegistrationStrategy`**: Specifies the strategy class for registering normalizers. The default strategy is [`WayOfDev\Serializer\DefaultNormalizerRegistrationStrategy`](https://github.com/wayofdev/laravel-symfony-serializer/blob/master/src/DefaultNormalizerRegistrationStrategy.php).
 - **`encoderRegistrationStrategy`**: Specifies the strategy class for registering encoders. The default strategy is [`WayOfDev\Serializer\DefaultEncoderRegistrationStrategy`](https://github.com/wayofdev/laravel-symfony-serializer/blob/master/src/DefaultEncoderRegistrationStrategy.php).
@@ -147,7 +149,7 @@ You can create custom normalizer or encoder registration strategies by implement
 
 #### Normalizer Registration Strategy
 
-To create a custom normalizer registration strategy
+To create a custom normalizer registration strategy:
 
 1. Implement the [`NormalizerRegistrationStrategy`](https://github.com/wayofdev/laravel-symfony-serializer/blob/master/src/Contracts/NormalizerRegistrationStrategy.php) interface:
 
@@ -245,7 +247,7 @@ The default serializers available in this package are: `symfony-json`, `symfony-
 
 > [!WARNING]
 > The `yaml` encoder requires the `symfony/yaml` package and is disabled when the package is not installed.
-> Install the `symfony/yaml` package and the encoder will be automatically enabled.
+> Install the `symfony/yaml` package, and the encoder will be automatically enabled.
 
 ### → Components
 
@@ -261,8 +263,8 @@ The `ResponseFactory` is used to create responses in Laravel controllers, making
 
 This package includes two Laravel Facades:
 
-- `Manager` — To access underlying SerializerManager
-- `Serializer` — To access bound and configured original Symfony Serializer instance.
+- `Manager` — To access the underlying `SerializerManager`
+- `Serializer` — To access the bound and configured original Symfony Serializer instance.
 
 ### → Example DTO
 
@@ -314,7 +316,7 @@ class UserDTO
 }
 ```
 
-### → Using `SerializerManager` in your Service Classes
+### → Using `SerializerManager` in Service Classes
 
 ```php
 <?php
@@ -324,7 +326,7 @@ namespace Application\Services;
 use WayOfDev\Serializer\Manager\SerializerManager;
 use Application\User\UserDTO;
 
-class MyService
+class ProductService
 {
     public function __construct(
         private readonly SerializerManager $serializer,
@@ -333,7 +335,7 @@ class MyService
 
     public function someMethod(): void
     {
-        $serializer = $serializer->serializer('symfony-json');
+        $serializer = $this->serializer->serializer('symfony-json');
         $dto = new UserDTO(1, 'John Doe', 'john@example.com');
 
         $serialized = $serializer->serialize(
@@ -443,14 +445,14 @@ This project has a [security policy](.github/SECURITY.md).
 
 ## 🙌 Want to Contribute?
 
-Thank you for considering contributing to the wayofdev community! We are open to all kinds of contributions. If you want to:
+Thank you for considering contributing to the wayofdev community! We welcome all kinds of contributions. If you want to:
 
 - 🤔 [Suggest a feature](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+enhancement&projects=&template=2-feature-request.yml&title=%5BFeature%5D%3A+)
 - 🐛 [Report an issue](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=1-bug-report.yml&title=%5BBug%5D%3A+)
 - 📖 [Improve documentation](https://github.com/wayofdev/laravel-symfony-serializer/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=4-docs-bug-report.yml&title=%5BDocs%5D%3A+)
 - 👨‍💻 [Contribute to the code](.github/CONTRIBUTING.md)
 
-You are more than welcome. Before contributing, kindly check our [contribution guidelines](.github/CONTRIBUTING.md).
+You are more than welcome. Before contributing, please check our [contribution guidelines](.github/CONTRIBUTING.md).
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=for-the-badge)](https://conventionalcommits.org)
 
@@ -475,7 +477,7 @@ You are more than welcome. Before contributing, kindly check our [contribution g
 
 ## 📜 License
 
-[![Licence](https://img.shields.io/github/license/wayofdev/laravel-symfony-serializer?style=for-the-badge&color=blue)](./LICENSE.md)
+[![License](https://img.shields.io/github/license/wayofdev/laravel-symfony-serializer?style=for-the-badge&color=blue)](./LICENSE.md)
 
 <br>
 
