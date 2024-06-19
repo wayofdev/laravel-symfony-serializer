@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.1](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.1.0...v2.1.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* add static types to Serializer facade ([434e73b](https://github.com/wayofdev/laravel-symfony-serializer/commit/434e73baf6ead436c36a36c79d20fc96f222b46b))
+
+
+### Documentation
+
+* updating README.md ([1578cd9](https://github.com/wayofdev/laravel-symfony-serializer/commit/1578cd914556c768c91cab59a94e67e553b66557))
+
 ## [2.1.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.0.0...v2.1.0) (2024-06-19)
 
 
