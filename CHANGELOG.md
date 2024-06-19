@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.0.0...v2.1.0) (2024-06-19)
+
+
+### Features
+
+* add static types to Manager Facade ([c4dfdf8](https://github.com/wayofdev/laravel-symfony-serializer/commit/c4dfdf8ea1d91cd6401cd4ed6d72cee3e27c08bd))
+
 ## [2.0.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v1.2.60...v2.0.0) (2024-06-18)
 
 
