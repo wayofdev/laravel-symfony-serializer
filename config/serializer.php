@@ -2,13 +2,19 @@
 
 declare(strict_types=1);
 
+use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
+use WayOfDev\Serializer\Contracts\EncoderRegistrationStrategy;
+use WayOfDev\Serializer\Contracts\NormalizerRegistrationStrategy;
+use WayOfDev\Serializer\DefaultEncoderRegistrationStrategy;
+use WayOfDev\Serializer\DefaultNormalizerRegistrationStrategy;
+
 /**
  * @return array{
  *     default: string,
  *     debug: bool,
- *     normalizerRegistrationStrategy: class-string<WayOfDev\Serializer\Contracts\NormalizerRegistrationStrategy>,
- *     encoderRegistrationStrategy: class-string<WayOfDev\Serializer\Contracts\EncoderRegistrationStrategy>,
- *     metadataLoader: class-string<Symfony\Component\Serializer\Mapping\Loader\LoaderInterface>|null,
+ *     normalizerRegistrationStrategy: class-string<NormalizerRegistrationStrategy>,
+ *     encoderRegistrationStrategy: class-string<EncoderRegistrationStrategy>,
+ *     metadataLoader: class-string<LoaderInterface>|null,
  * }
  */
 return [
@@ -38,7 +44,7 @@ return [
      * Allows you to specify the strategy class for registering your normalizers.
      * Default is 'WayOfDev\Serializer\DefaultNormalizerRegistrationStrategy'.
      */
-    'normalizerRegistrationStrategy' => WayOfDev\Serializer\DefaultNormalizerRegistrationStrategy::class,
+    'normalizerRegistrationStrategy' => DefaultNormalizerRegistrationStrategy::class,
 
     /*
      * Allows you to register your custom encoders.
@@ -53,7 +59,7 @@ return [
      * You can replace the default encoders with your custom ones by implementing
      * your own registration strategy.
      */
-    'encoderRegistrationStrategy' => WayOfDev\Serializer\DefaultEncoderRegistrationStrategy::class,
+    'encoderRegistrationStrategy' => DefaultEncoderRegistrationStrategy::class,
 
     /*
      * Allows you to register your custom metadata loader.
