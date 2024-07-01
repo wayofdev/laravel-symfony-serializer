@@ -30,16 +30,6 @@
       <code><![CDATA[boot]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Config.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$this->encoderRegistrationStrategy === null]]></code>
-      <code><![CDATA[$this->normalizerRegistrationStrategy === null]]></code>
-    </DocblockTypeContradiction>
-    <InvalidParamDefault>
-      <code><![CDATA[private]]></code>
-      <code><![CDATA[private]]></code>
-    </InvalidParamDefault>
-  </file>
   <file src="src/DefaultNormalizerRegistrationStrategy.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>

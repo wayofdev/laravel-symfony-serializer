@@ -28,9 +28,9 @@ final class Config implements ConfigRepository
     public function __construct(
         private readonly string $defaultSerializer = 'symfony-json',
         private readonly bool $debug = false,
-        /** @var class-string<NormalizerRegistrationStrategy> */
+        /** @var class-string<NormalizerRegistrationStrategy>|null */
         private readonly ?string $normalizerRegistrationStrategy = null,
-        /** @var class-string<EncoderRegistrationStrategy> */
+        /** @var class-string<EncoderRegistrationStrategy>|null */
         private readonly ?string $encoderRegistrationStrategy = null,
         /** @var class-string<LoaderInterface>|null */
         private readonly ?string $metadataLoader = null,
