@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.1.1...v2.1.2) (2024-07-01)
+
+
+### Documentation
+
+* update README.md ([ea23edb](https://github.com/wayofdev/laravel-symfony-serializer/commit/ea23edb1f6d166b0227984d6cced14cdb45bece2))
+
 ## [2.1.1](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.1.0...v2.1.1) (2024-06-19)
 
 
