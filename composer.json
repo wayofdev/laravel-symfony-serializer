@@ -50,7 +50,7 @@
         "phpstan/phpstan-deprecation-rules": "^1.2",
         "phpstan/phpstan-phpunit": "^1.4",
         "phpstan/phpstan-strict-rules": "^1.6",
-        "phpunit/phpunit": "^10.5",
+        "phpunit/phpunit": "^11.0",
         "psalm/plugin-laravel": "^2.11",
         "psalm/plugin-phpunit": "^0.19",
         "rector/rector": "^1.1",
