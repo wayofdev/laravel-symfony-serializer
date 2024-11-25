@@ -6819,34 +6819,40 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.15.0",
+            "version": "2.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29"
+                "reference": "671ea2ba0669917f7e98b54e4188e1c1ebf6e29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29",
-                "reference": "d9e4ea11d0e7bf1e54df5385bfd94b5156ab0a29",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/671ea2ba0669917f7e98b54e4188e1c1ebf6e29d",
+                "reference": "671ea2ba0669917f7e98b54e4188e1c1ebf6e29d",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+                "php": "~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
                 "phpunit/phpunit": "^6.5.0 || ^7.5.0 || ^8.5.19 || ^9.0.0 || ^10.0.0 || ^11.0.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.43.0",
-                "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.31.0",
+                "ergebnis/composer-normalize": "^2.44.0",
+                "ergebnis/license": "^2.6.0",
+                "ergebnis/php-cs-fixer-config": "^6.38.0",
                 "fakerphp/faker": "~1.20.0",
-                "psalm/plugin-phpunit": "~0.19.0",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^1.12.11",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.1",
+                "phpstan/phpstan-strict-rules": "^1.6.1",
                 "psr/container": "~1.0.0",
-                "rector/rector": "^1.1.0",
-                "vimeo/psalm": "^5.24.0"
+                "rector/rector": "^1.2.10"
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "2.16-dev"
+                },
                 "composer-normalize": {
                     "indent-size": 2,
                     "indent-style": "space"
@@ -6882,7 +6888,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2024-06-16T18:21:35+00:00"
+            "time": "2024-11-25T08:54:52+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -13560,13 +13566,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.2.17"
     },
