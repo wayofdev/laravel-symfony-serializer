@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/Bridge/Laravel/Http/ResponseFactory.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[empty]]></code>
@@ -15,20 +15,17 @@
                 'metadataLoader' => $config->get('serializer.metadataLoader'),
             ]]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedInferredReturnType>
-      <code><![CDATA[EncoderRegistrationStrategy]]></code>
-      <code><![CDATA[NormalizerRegistrationStrategy]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$app->make($strategyFQCN)]]></code>
-      <code><![CDATA[$app->make($strategyFQCN, [
-                'loader' => $loader,
-                'debugMode' => $config->debug(),
-            ])]]></code>
-    </MixedReturnStatement>
     <PossiblyUnusedMethod>
       <code><![CDATA[boot]]></code>
     </PossiblyUnusedMethod>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[EncoderRegistrationStrategy]]></code>
+      <code><![CDATA[EncoderRegistryInterface]]></code>
+      <code><![CDATA[LoaderInterface]]></code>
+      <code><![CDATA[NormalizerRegistrationStrategy]]></code>
+      <code><![CDATA[NormalizerRegistryInterface]]></code>
+      <code><![CDATA[Repository]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/DefaultNormalizerRegistrationStrategy.php">
     <PossiblyUnusedMethod>
@@ -65,17 +62,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/Bridge/Laravel/Providers/SerializerServiceProviderTest.php">
-    <MixedArgument>
-      <code><![CDATA[$encoders]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$encodersRegistry]]></code>
-      <code><![CDATA[$normalizersRegistry]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[all]]></code>
-      <code><![CDATA[all]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[it_registers_config]]></code>
       <code><![CDATA[it_registers_encoders_registry]]></code>
@@ -95,10 +81,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/EncoderRegistryTest.php">
-    <MixedArgument>
-      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
-      <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
-    </MixedArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
       <code><![CDATA[$this->app?->make(EncoderRegistrationStrategy::class)]]></code>
@@ -128,11 +110,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/NormalizerRegistryTest.php">
-    <MixedArgument>
-      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
-      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
-      <code><![CDATA[app(NormalizerRegistrationStrategy::class)]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[construct_with_default_normalizers]]></code>
       <code><![CDATA[it_gets_all_registered_normalizers]]></code>
@@ -141,13 +118,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/src/Functional/Normalizers/RamseyUuidNormalizerTest.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[$manager->serialize($payload, $format)]]></code>
-    </ImplicitToStringCast>
-    <PossiblyNullReference>
-      <code><![CDATA[deserialize]]></code>
-      <code><![CDATA[serialize]]></code>
-    </PossiblyNullReference>
     <PossiblyUnusedMethod>
       <code><![CDATA[it_deserializes_using_serialize_manager]]></code>
       <code><![CDATA[it_serializes_using_serializer_manager]]></code>

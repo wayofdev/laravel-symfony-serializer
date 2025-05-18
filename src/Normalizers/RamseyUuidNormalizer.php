@@ -6,6 +6,7 @@ namespace WayOfDev\Serializer\Normalizers;
 
 use ArrayObject;
 use InvalidArgumentException;
+use Override;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
@@ -19,14 +20,17 @@ use function sprintf;
 final class RamseyUuidNormalizer implements NormalizerInterface, DenormalizerInterface
 {
     /**
-     * @param UuidInterface $object
+     * @param mixed $data
      * @param array<array-key, mixed> $context
-     *
-     * @psalm-suppress MoreSpecificImplementedParamType
      */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
+    #[Override]
+    public function normalize(mixed $data, ?string $format = null, array $context = []): string
     {
-        return $object->toString();
+        if (!$data instanceof UuidInterface) {
+            throw new NotNormalizableValueException('Expected UuidInterface instance');
+        }
+
+        return $data->toString();
     }
 
     /**

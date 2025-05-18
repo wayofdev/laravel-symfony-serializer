@@ -49,8 +49,11 @@ final class RamseyUuidNormalizerTest extends TestCase
     public function it_serializes_using_serializer_manager(string $expected, mixed $payload, string $format): void
     {
         $manager = $this->app?->get(SerializerManager::class);
+        self::assertNotNull($manager, 'SerializerManager should not be null');
 
-        self::assertSame($expected, preg_replace('/\s+/', '', $manager->serialize($payload, $format)));
+        $serialized = $manager->serialize($payload, $format);
+        self::assertIsString($serialized);
+        self::assertSame($expected, preg_replace('/\s+/', '', $serialized));
     }
 
     /**
@@ -61,6 +64,7 @@ final class RamseyUuidNormalizerTest extends TestCase
     public function it_deserializes_using_serialize_manager(): void
     {
         $manager = $this->app?->get(SerializerManager::class);
+        self::assertNotNull($manager, 'SerializerManager should not be null');
 
         $result = $manager->deserialize(
             '{"uuid":"1d96a152-9838-43a0-a189-159befc9e38f","name":"some"}',
