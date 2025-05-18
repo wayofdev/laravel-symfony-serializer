@@ -34,7 +34,7 @@ jobs:
         uses: shivammathur/setup-php@2.30.5
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo
+          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo, iconv
           ini-values: error_reporting=E_ALL
           coverage: xdebug
 
@@ -47,17 +47,17 @@ jobs:
         run: composer validate --ansi --strict
 
       - name: 🔍 Get composer cache directory
-        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.3.0
 
       - name: ♻️ Restore cached dependencies installed with composer
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
           restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: 📥 Install "${{ matrix.dependencies }}" dependencies with composer
-        uses: wayofdev/gh-actions/actions/composer/install@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/install@v3.3.0
         with:
           dependencies: ${{ matrix.dependencies }}
 
@@ -97,7 +97,7 @@ jobs:
         uses: shivammathur/setup-php@2.30.5
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo
+          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo, iconv
           ini-values: error_reporting=E_ALL
           coverage: xdebug
 
@@ -110,10 +110,10 @@ jobs:
         run: composer validate --ansi --strict
 
       - name: 🔍 Get composer cache directory
-        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.3.0
 
       - name: ♻️ Restore cached dependencies installed with composer
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
@@ -124,7 +124,7 @@ jobs:
         run: composer config platform.php --ansi --unset
 
       - name: 📥 Install "${{ matrix.dependencies }}" dependencies
-        uses: wayofdev/gh-actions/actions/composer/install@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/install@v3.3.0
         with:
           dependencies: ${{ matrix.dependencies }}
 
@@ -154,7 +154,7 @@ jobs:
         uses: shivammathur/setup-php@2.30.5
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo
+          extensions: none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter, opcache, pcntl, posix, fileinfo, iconv
           ini-values: error_reporting=E_ALL
           coverage: xdebug
 
@@ -167,10 +167,10 @@ jobs:
         run: composer validate --ansi --strict
 
       - name: 🔍 Get composer cache directory
-        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.3.0
 
       - name: ♻️ Restore cached dependencies installed with composer
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
@@ -181,7 +181,7 @@ jobs:
         run: composer config platform.php --ansi --unset
 
       - name: 📥 Install "${{ matrix.dependencies }}" dependencies
-        uses: wayofdev/gh-actions/actions/composer/install@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/install@v3.3.0
         with:
           dependencies: ${{ matrix.dependencies }}
 
@@ -222,17 +222,17 @@ jobs:
         run: composer validate --ansi --strict
 
       - name: 🔍 Get composer cache directory
-        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/get-cache-directory@v3.3.0
 
       - name: ♻️ Restore cached dependencies installed with composer
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
           restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: 📥 Install "${{ matrix.dependencies }}" dependencies
-        uses: wayofdev/gh-actions/actions/composer/install@v3.1.1
+        uses: wayofdev/gh-actions/actions/composer/install@v3.3.0
         with:
           dependencies: ${{ matrix.dependencies }}
 
