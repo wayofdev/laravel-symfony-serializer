@@ -24,6 +24,6 @@ interface SerializerInterface
         string|Stringable $payload,
         string|object|null $type = null,
         ?string $format = null,
-        ?array $context = []
+        ?array $context = [],
     ): mixed;
 }

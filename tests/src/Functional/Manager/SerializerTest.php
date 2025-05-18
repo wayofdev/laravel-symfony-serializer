@@ -20,7 +20,7 @@ final class SerializerTest extends TestCase
 
         $serializer = new Serializer($symfonySerializer, 'json');
 
-        $json = $serializer->serialize(new class() {
+        $json = $serializer->serialize(new class {
             public string $name = 'some';
         });
 

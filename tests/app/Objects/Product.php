@@ -14,7 +14,7 @@ class Product
         #[Groups('group1')] public string $title,
         #[Groups('group2')] public float $price,
         #[Groups('group2')] public bool $active,
-        #[Groups('group3')] #[SerializedName('product_views')] public int $views
+        #[Groups('group3')] #[SerializedName('product_views')] public int $views,
     ) {
     }
 }

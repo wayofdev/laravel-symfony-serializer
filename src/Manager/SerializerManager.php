@@ -11,7 +11,7 @@ readonly class SerializerManager implements SerializerInterface
 {
     public function __construct(
         protected SerializerRegistry $serializers,
-        protected string $defaultFormat = 'symfony-json'
+        protected string $defaultFormat = 'symfony-json',
     ) {
     }
 
@@ -44,7 +44,7 @@ readonly class SerializerManager implements SerializerInterface
         string|Stringable $payload,
         string|object|null $type = null,
         ?string $format = null,
-        ?array $context = []
+        ?array $context = [],
     ): mixed {
         $format = $format ?? $this->defaultFormat;
 
