@@ -10,7 +10,7 @@ class User
 {
     public function __construct(
         public int $id,
-        public DateTimeInterface $registeredAt
+        public DateTimeInterface $registeredAt,
     ) {
     }
 }

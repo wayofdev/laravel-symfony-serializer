@@ -10,7 +10,7 @@ class Author
 {
     public function __construct(
         public UuidInterface $uuid,
-        public string $name
+        public string $name,
     ) {
     }
 }

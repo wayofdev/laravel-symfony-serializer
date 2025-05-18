@@ -35,7 +35,7 @@ final class EncoderRegistryTest extends TestCase
     #[Test]
     public function it_creates_registry_with_user_defined_encoders(): void
     {
-        $strategy = new class() implements EncoderRegistrationStrategy {
+        $strategy = new class implements EncoderRegistrationStrategy {
             public function encoders(): iterable
             {
                 yield ['encoder' => new JsonEncoder()];

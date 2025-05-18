@@ -10,7 +10,7 @@ class Post
         public int $id,
         public string $text,
         public bool $active,
-        public int $views
+        public int $views,
     ) {
     }
 }

@@ -14,7 +14,7 @@ final readonly class Serializer implements SerializerInterface
 {
     public function __construct(
         private SymfonySerializerInterface $serializer,
-        private string $format
+        private string $format,
     ) {
     }
 
