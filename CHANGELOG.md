@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.1.1...v3.0.0) (2025-05-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* add Laravel 12 support ([#229](https://github.com/wayofdev/laravel-symfony-serializer/issues/229))
+
+### Features
+
+* add Laravel 12 support ([#229](https://github.com/wayofdev/laravel-symfony-serializer/issues/229)) ([84d8faa](https://github.com/wayofdev/laravel-symfony-serializer/commit/84d8faad5f52ea64de5063de7c08d254f9d412d9))
+
+
+### Documentation
+
+* update README.md ([ea23edb](https://github.com/wayofdev/laravel-symfony-serializer/commit/ea23edb1f6d166b0227984d6cced14cdb45bece2))
+
 ## [2.1.1](https://github.com/wayofdev/laravel-symfony-serializer/compare/v2.1.0...v2.1.1) (2024-06-19)
 
 
