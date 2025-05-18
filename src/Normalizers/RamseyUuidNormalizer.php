@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace WayOfDev\Serializer\Normalizers;
 
-use ArrayObject;
 use InvalidArgumentException;
 use Override;
 use Ramsey\Uuid\Uuid;
@@ -20,13 +19,12 @@ use function sprintf;
 final class RamseyUuidNormalizer implements NormalizerInterface, DenormalizerInterface
 {
     /**
-     * @param mixed $data
      * @param array<array-key, mixed> $context
      */
     #[Override]
     public function normalize(mixed $data, ?string $format = null, array $context = []): string
     {
-        if (!$data instanceof UuidInterface) {
+        if (! $data instanceof UuidInterface) {
             throw new NotNormalizableValueException('Expected UuidInterface instance');
         }
 
