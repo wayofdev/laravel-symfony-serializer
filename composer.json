@@ -43,7 +43,7 @@
         "ergebnis/phpunit-slow-test-detector": "^2.19",
         "larastan/larastan": "^2.11",
         "orchestra/testbench": "^9.14",
-        "pestphp/pest": "^2.36",
+        "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^2.4",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^1.12",
