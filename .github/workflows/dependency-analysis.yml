@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - name: 📦 Check out the codebase
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.2
 
       - name: 🛠️ Setup PHP
         uses: shivammathur/setup-php@2.33.0
