@@ -10387,20 +10387,20 @@
         },
         {
             "name": "psalm/plugin-laravel",
-            "version": "v2.12.1",
+            "version": "v2.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-laravel.git",
-                "reference": "c7910a1e199fe26812df2381ede086aaa256d222"
+                "reference": "703460407db9df774984fd21490a0970bc37f22e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-laravel/zipball/c7910a1e199fe26812df2381ede086aaa256d222",
-                "reference": "c7910a1e199fe26812df2381ede086aaa256d222",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-laravel/zipball/703460407db9df774984fd21490a0970bc37f22e",
+                "reference": "703460407db9df774984fd21490a0970bc37f22e",
                 "shasum": ""
             },
             "require": {
-                "barryvdh/laravel-ide-helper": "^2.13 || ^3.0",
+                "barryvdh/laravel-ide-helper": "^2.15 || >=3.4.0 <3.6",
                 "ext-simplexml": "*",
                 "illuminate/config": "^10.48 || ^11.0",
                 "illuminate/container": "^10.48 || ^11.0",
@@ -10416,7 +10416,7 @@
                 "php": "^8.1",
                 "symfony/console": "^6.0 || ^7.0",
                 "symfony/finder": "^6.0 || ^7.0",
-                "vimeo/psalm": "^5.20|^6"
+                "vimeo/psalm": "^5.20 || ^6"
             },
             "require-dev": {
                 "laravel/framework": "^10.48 || ^11.0",
@@ -10451,11 +10451,17 @@
             ],
             "description": "Psalm plugin for Laravel",
             "homepage": "https://github.com/psalm/psalm-plugin-laravel",
+            "keywords": [
+                "dev",
+                "laravel",
+                "psalm",
+                "psalm-plugin"
+            ],
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-laravel/issues",
-                "source": "https://github.com/psalm/psalm-plugin-laravel/tree/v2.12.1"
+                "source": "https://github.com/psalm/psalm-plugin-laravel/tree/v2.12.2"
             },
-            "time": "2025-02-16T19:03:28+00:00"
+            "time": "2025-12-01T17:05:55+00:00"
         },
         {
             "name": "psalm/plugin-phpunit",
@@ -13215,5 +13221,5 @@
     "platform-overrides": {
         "php": "8.2.17"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
